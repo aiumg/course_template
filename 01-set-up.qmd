@@ -1,0 +1,174 @@
+---
+title: "Set Up and First Render"
+subtitle: "Install two programs, open the project, and see a finished website within the hour"
+---
+
+::: {.objectives}
+**In this chapter**
+
+- Explain in one sentence how text files become a course website
+- Install R and RStudio
+- Open the project and build the website for the first time
+- Make one change and see it appear
+:::
+
+## The idea in three sentences
+
+You write your course as ordinary text files, one per chapter. You press one
+button, and the software turns those files into a finished website: navigation,
+search, quizzes, the university's colours and logo, all included. That website
+is just a folder of files, which you then put on GitHub or GitLab, where it is
+shown to learners as a normal web address.
+
+Think of it like exporting a Word document to PDF. You write, you press export,
+you get the finished thing. The difference is that the "finished thing" is a
+whole website, and that this one already looks the way the university expects.
+
+::: {.keypoint}
+**Key point**
+
+You never edit the website itself. You edit the text files and *render* (build)
+the website again. If something on the website is wrong, you fix the text file,
+not the web page.
+:::
+
+## Step 1: install R and RStudio
+
+Two free programs, installed in this order.
+
+1. **R** — the engine underneath. Download from
+   [cran.r-project.org](https://cran.r-project.org): choose your operating
+   system, then the download link for the latest version, and run the
+   installer with the default choices.
+2. **RStudio Desktop** — the program you actually work in. Download from
+   [posit.co/download/rstudio-desktop](https://posit.co/download/rstudio-desktop/)
+   and install it.
+
+RStudio includes **Quarto**, the tool that builds the website. There is nothing
+else to install.
+
+::: {.callout-note appearance="simple"}
+## You will not write R code
+
+This template contains no R code, and you do not need to know any. R is only the
+engine that RStudio runs on. You will work with text, images and quiz questions.
+:::
+
+::: {.callout-tip appearance="simple"}
+## On a managed work computer
+
+If you are not allowed to install programs, ask your IT support for R and
+RStudio Desktop. Many institutions offer them through a software portal. Tell
+them you need *RStudio Desktop with Quarto*, so they install a version recent
+enough to include it.
+:::
+
+## Step 2: put the project in the right place
+
+You receive the template as a folder (or a zip file, which you unzip first).
+
+1. Copy the folder to a normal location on your own computer, such as
+   *Documents*.
+2. Rename it to something that describes your course, for example
+   `wound-care-course`. Use lowercase letters and hyphens; avoid spaces,
+   umlauts and special characters.
+3. Inside, rename `course-template.Rproj` to the same name, for example
+   `wound-care-course.Rproj`.
+
+::: {.callout-warning appearance="simple"}
+## Avoid synchronised and network folders
+
+Keep the project on the computer's own disk. Folders that are continuously
+synchronised (cloud storage) or that live on a network drive can be slow and can
+lock files while the website is being built, which causes confusing errors.
+:::
+
+## Step 3: open the project and build the website
+
+1. Double-click the `.Rproj` file. RStudio opens with the project loaded.
+2. Find the **Build** tab, usually in the upper-right panel.
+3. Click **Render Website**.
+
+The first build takes a minute or two. Progress appears in a panel labelled
+*Background Jobs*, and when it finishes, the website opens in RStudio's Viewer
+pane or in your browser. That is your course, running.
+
+::: {.callout-tip appearance="simple"}
+## If there is no Build tab
+
+RStudio only shows it when the project was opened through the `.Rproj` file.
+Use *File → Open Project…* and choose that file.
+:::
+
+The finished website is written to a folder called `docs` inside your project.
+Chapter 8 explains why it has that name and what to do with it. For now, just
+know that this folder is the product: everything a learner sees is in there.
+
+## Step 4: your first edit
+
+1. In RStudio's *Files* panel, click `index.qmd` to open it.
+2. Change the `title:` line at the top to something of your own.
+3. Save (*Ctrl+S*, or *Cmd+S* on a Mac).
+4. Click **Render Website** again.
+
+Your new title appears. That is the whole working rhythm of this course:
+**edit, save, render, look.** Repeat as often as you like; nothing you do can
+break the original, and a render is harmless.
+
+### Editing without seeing the markup
+
+The file you just opened shows some symbols (`#`, `*`, `:::`). That is the
+*source* view. You do not have to live there. At the top-left of the editor
+there are two buttons, **Source** and **Visual**. Click **Visual** and the file
+looks like a word processor: bold and italic buttons, bullet lists, an *Insert*
+menu for pictures, tables and callouts. The text underneath is written for you.
+
+Most authors work in Visual mode and switch to Source only to fix something
+particular. Chapters 3 and 4 show both views side by side.
+
+## What if something goes wrong?
+
+| What you see | What it usually means | What to do |
+|---|---|---|
+| An error message in the Background Jobs panel | A typo in a text file. The message names the file and often the line | Open that file, look at the line named, compare with a working example |
+| The error mentions the settings file, `_quarto.yml` | Wrong indentation. That file is fussy about spaces | Use spaces, never the Tab key; copy an existing block and change only the words |
+| The page still shows old content | It was not rebuilt | Click **Render Website** again and refresh the browser (*Ctrl+F5*) |
+| Search does not work when you double-click a page in `docs` | Search needs the site to be *served*, not opened from disk | Use the preview RStudio gives you after rendering, or check search once the site is published |
+: Common first-day problems {#tbl-troubleshooting}
+
+## Check your understanding
+
+::: {.quiz-score}
+:::
+
+::: {.question}
+You spot a spelling mistake on a page of the finished website. Where do you fix it?
+
+- [ ] In the HTML file inside the `docs` folder
+- [x] In the `.qmd` text file, then render the website again
+- [ ] In the browser, by clicking on the text
+- [ ] In the `.Rproj` file
+
+::: {.feedback}
+The website is generated from the text files. If you correct the generated file,
+your fix is overwritten the next time you render. Always correct the source.
+:::
+:::
+
+::: {.question}
+Do you need to know how to program in R to use this template?
+
+- [ ] Yes, at least the basics
+- [x] No. R is only the engine RStudio runs on; you work with text and menus
+- [ ] Yes, but only to build the quizzes
+- [ ] Only if the course has images
+
+::: {.feedback}
+The template contains no R code. Quizzes are written as plain text, and images
+and tables are inserted from menus or with a few characters of markup.
+:::
+:::
+
+The working rhythm of this course is: edit, save, [?]{.fitb answer="render"}, look.
+(Type the missing word and click elsewhere. *Render* is the word for building the
+website from the text files; in RStudio it is the **Render Website** button.)

@@ -1,0 +1,63 @@
+/*-- scss:defaults --*/
+
+// Slide theme. Palette values repeat the ones in theme.scss (reveal.js is
+// compiled separately and cannot import them). If you re-brand the course,
+// change the six colours below as well.
+$umg-black:  #000000;
+$umg-punkt:  #6c8ca9;
+$umg-logo:   #134a84;
+$umg-yellow: #f1a400;
+$umg-dark:   #203151;
+
+$body-bg: #ffffff;
+$body-color: $umg-black;
+$link-color: $umg-logo;
+$selection-bg: #c4d1dd;
+
+$font-family-sans-serif: Interstate, Calibri, Carlito, "Segoe UI", Arial, sans-serif;
+$presentation-font-size-root: 36px;
+$presentation-heading-font: $font-family-sans-serif;
+$presentation-heading-color: $umg-dark;
+$presentation-heading-font-weight: 600;
+
+/*-- scss:rules --*/
+
+// Stylebook slide layout: title, then a Punktblau rule; logo top right.
+.reveal h2 {
+  border-bottom: 4px solid $umg-punkt;
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.6em;
+}
+.reveal h3 { color: $umg-logo; }
+
+// Logo: top right with even clear space (see theme.scss for the rule).
+.reveal .slide-logo {
+  top: 28px;
+  right: 28px;
+  bottom: auto;
+  left: auto;
+  height: 46px;
+  max-height: none;
+  width: auto;
+}
+
+.reveal .slide-number { background: transparent; color: $umg-dark; }
+.reveal .footer { color: $umg-dark; font-size: 0.5em; }
+
+// Emphasis block: black text on UMG Gelb, as the stylebook permits.
+.reveal .callout-yellow {
+  background: $umg-yellow;
+  color: $umg-black;
+  padding: 0.4em 0.8em;
+  border-radius: 3px;
+}
+// White text on the blues.
+.reveal .callout-blue {
+  background: $umg-logo;
+  color: #ffffff;
+  padding: 0.4em 0.8em;
+  border-radius: 3px;
+}
+
+.reveal .columns h3 { font-size: 0.8em; font-weight: 500; }
+.reveal a { text-decoration: underline; }

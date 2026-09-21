@@ -1,0 +1,86 @@
+---
+title: "Building a Course"
+subtitle: "From idea to published website in eight steps"
+author: "Digitalisierungszentrum, Universitätsmedizin Göttingen"
+date: last-modified
+date-format: "D MMMM YYYY"
+format:
+  revealjs:
+    theme: [default, ../assets/slides.scss]
+    logo: ../images/logo.png
+    slide-number: c/t
+    controls: true
+    progress: true
+    width: 1280
+    height: 760
+    footer: "Course Template"
+---
+
+## Why a template?
+
+Building an online course should be about your subject, not about web design.
+
+. . .
+
+The template gives you:
+
+- Chapters, navigation and search
+- Quizzes with instant feedback
+- The university's corporate design, already applied
+
+## The whole workflow
+
+1. **Plan** on paper: outcomes first
+2. **Write** each chapter as a text file
+3. **Render** with one click in RStudio
+4. **Check** with the checklist
+5. **Publish** on GitHub or GitLab Pages
+
+::: {.notes}
+Mention that steps 2 to 4 repeat many times. Publishing is the routine render,
+commit, push.
+:::
+
+## Plan from the outcome
+
+:::: {.columns}
+::: {.column width="50%"}
+### Not this
+
+"Understand hand hygiene"
+:::
+::: {.column width="50%"}
+### This
+
+"List the five moments for hand disinfection"
+:::
+::::
+
+## One chapter, one rhythm
+
+- Objectives
+- Short sections, each with its own heading
+- One key point
+- Two to four questions
+
+::: {.callout-yellow}
+Questions are part of the teaching, not an extra.
+:::
+
+## Write
+
+Plain text with a few symbols, or the Visual editor in RStudio.
+
+::: {.callout-blue}
+You edit the text files. You never edit the website.
+:::
+
+## Publish
+
+**Render, commit, push.**
+
+Three steps, every time.
+
+## Where to start
+
+Open the course, **Chapter 1**, and follow it once from the beginning.

@@ -1,0 +1,170 @@
+---
+title: "Check Before Release"
+subtitle: "A short review that catches almost every embarrassing mistake"
+---
+
+::: {.objectives}
+**In this chapter**
+
+- Find leftover template text and placeholder settings
+- Review a course for accessibility in ten minutes
+- Test the course on a small screen and in dark mode
+- Recognise the legal and privacy questions to settle before going public
+- Get one other person to test it
+:::
+
+Once a course is public, learners will find every typo, broken link and leftover
+"Placeholder" for you. A structured check before release costs an hour and saves
+the awkward emails. Work through the sections below in order.
+
+## 1. Content
+
+1. **Every chapter has objectives at the top**, and every objective is covered by
+   at least one question.
+2. **Read each chapter once, aloud or slowly.** You will hear what you cannot see:
+   sentences that are too long, steps out of order.
+3. **Run the spell checker.** In RStudio, open a chapter and press *F7* (or use
+   *Edit → Check Spelling*). Do it for every file.
+4. **Check facts, numbers and dates**, especially anything that might have changed
+   since you wrote it.
+5. **Click every link** to an outside website. Web addresses go out of date.
+
+## 2. Leftover template text
+
+The commonest slip is publishing the template's own words. Use RStudio's search
+across all files: *Edit → Find in Files…* (*Ctrl+Shift+F*, or *Cmd+Shift+F* on a
+Mac). Search for each of these, and fix every hit outside the parts of the course
+that you deliberately kept:
+
+- `Course Template`
+- `example.org`
+- `Placeholder`
+- `Your name`
+- `placeholder.svg`
+
+Then open `_quarto.yml` and check the lines marked `CHANGE`: the course title, the
+description, the web address (`site-url`), the chapter list and the footer.
+Also check `index.qmd`: the author line and the date.
+
+## 3. The look
+
+Render the whole website with **Render Website**, not just a single file, so no
+stale pages remain. Then look at it the way learners will:
+
+- **On a small screen.** Make the browser window narrow (drag its edge) until the
+  layout switches to the phone view. Text should stay readable, and no
+  horizontal scrolling should be needed. Better still, open the published site on
+  a real phone once.
+- **In dark mode.** Switch your computer to dark appearance and reload. Text,
+  boxes and the logo should stay legible.
+- **In the print preview**, if learners will print chapters.
+- **In the search.** Type a word you know is in a chapter, and confirm it is
+  found. Search works on the published site, and may not when you open the files
+  from disk.
+
+## 4. Accessibility
+
+A course that not everyone can use is unfinished. Ten minutes:
+
+1. **Alt text** on every image (Chapter 4). No "image1".
+2. **Headings** in order, never skipped, never faked with bold text (Chapter 3).
+3. **Link text** that makes sense alone. Search your chapters for "click here".
+4. **No information by colour alone.** If a sentence says "the red button", add a
+   name.
+5. **Video has captions or a transcript.**
+6. **Try the keyboard.** Press *Tab* repeatedly through a page and check that you
+   can reach and use links, menus and the quiz buttons without a mouse.
+
+The standard behind these points is the Web Content Accessibility Guidelines
+[@w3c2023wcag22]; the template's colours already pass its contrast requirements,
+so you only need to keep to the habits above.
+
+## 5. Legal and privacy
+
+::: {.callout-important}
+## Ask, do not guess
+
+The rules for what a public university website must contain, and what may be
+published, are set by your institution. Confirm the following with the responsible
+office before release.
+:::
+
+- **Imprint and privacy notice.** Public websites in Germany normally need an
+  imprint (*Impressum*) and, where personal data is processed, a privacy notice.
+  Ask your communications or data-protection office for the standard wording and
+  the address to link to. The footer in `_quarto.yml` has a commented-out example
+  showing where such a link goes.
+- **Picture, text and video rights.** Do you have the right to publish every image,
+  table and quotation? Is each one credited as its licence requires?
+- **Patient and personal data.** Nothing that identifies a patient or a colleague,
+  in text, images, screenshots or file names. Look at screenshots for name fields,
+  record numbers and dates of birth.
+- **Third-party services.** If you have embedded a video or map from an outside
+  provider, your data-protection office needs to have approved it.
+- **The licence of your own material.** State how others may reuse the course, if
+  at all, in the footer or on the landing page.
+
+## 6. A fresh pair of eyes
+
+Ask one person who does not know the subject to work through one chapter while you
+watch, and say nothing. Note every place they hesitate, re-read or click the wrong
+thing. These are the places to improve. You will learn more in twenty minutes than
+in a day of rereading your own text.
+
+## 7. Before you press publish
+
+- The whole website has been rendered again after your last change.
+- Nothing is left in the sidebar that you do not want learners to see. Drafts start
+  with an underscore.
+- You know what web address the course will have, and it is entered as `site-url`.
+
+You are ready for Chapter 8.
+
+## Check your understanding
+
+::: {.quiz-score}
+:::
+
+::: {.question}
+Which of these is the best way to find leftover placeholder text across the whole project?
+
+- [ ] Read every chapter again
+- [x] Use *Edit → Find in Files* and search for the placeholder words
+- [ ] Ask a learner to report them
+- [ ] Render the website and look at the sidebar
+
+::: {.feedback}
+A search across all files finds every hit in seconds, including ones in files you
+have not opened for weeks. Reading is slower and easily misses things.
+:::
+:::
+
+::: {.question}
+A screenshot in your chapter shows the RStudio window on your own computer, including a project name and your user name. What should you do?
+
+- [ ] Nothing; a screenshot is not personal data
+- [x] Check it for anything that identifies a person or a patient, and crop or redo it if necessary
+- [ ] Add alt text and move on
+- [ ] Reduce its size
+
+::: {.feedback}
+Screenshots regularly reveal names, file paths and records that their authors did
+not notice. Look at the whole picture, at full size, before publishing.
+:::
+:::
+
+::: {.question}
+Why render the *whole* website before release, rather than only the chapter you last changed?
+
+- [ ] It is faster
+- [ ] Single pages cannot be published
+- [x] A full render rebuilds every page and clears out pages that no longer belong to the course
+- [ ] It creates the search box
+
+::: {.feedback}
+A full render leaves the output folder in the exact state that will be published,
+with no stale leftovers from earlier versions.
+:::
+:::
+
+The menu you use in RStudio to search through every file at once is called *Edit → Find in [?]{.fitb answer="Files"}*.

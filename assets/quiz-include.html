@@ -1,0 +1,251 @@
+<script>
+/* ---------------------------------------------------------------------------
+   Lightweight self-assessment engine for the course template.
+
+   Authors write plain markdown. Nothing here needs an R package or a server.
+
+   Multiple choice
+   ---------------
+   ::: {.question}
+   Question text goes here.
+
+   - [ ] a wrong option
+   - [x] the correct option
+   - [ ] another wrong option
+
+   ::: {.feedback}
+   Shown after the learner answers.
+   :::
+   :::
+
+   Fill in the blank
+   -----------------
+   A word or phrase (case and surrounding spaces are ignored; separate
+   alternative accepted answers with |):
+   The tool that turns text files into a website is [?]{.fitb answer="Quarto"} .
+   The file extension is [?]{.fitb answer="qmd|.qmd"} .
+
+   A number (accepted within tol, default 0.01; a decimal comma is fine):
+   A chapter should take about [?]{.fitb answer="15" tol="5"} minutes.
+--------------------------------------------------------------------------- */
+(function () {
+  "use strict";
+
+  function buildMultipleChoice(block, index) {
+    var list = block.querySelector("ul");
+    if (!list) return null;
+
+    var items = Array.prototype.slice.call(list.querySelectorAll(":scope > li"));
+    if (!items.length) return null;
+
+    var feedbackEl = block.querySelector(".feedback");
+    if (feedbackEl) feedbackEl.classList.add("feedback-hidden");
+
+    var options = items.map(function (li) {
+      var box = li.querySelector('input[type="checkbox"]');
+      var correct = !!(box && box.checked);
+      if (box) box.remove();
+      // Quarto wraps task-list text in its own <label>; unwrap it, because the
+      // option row is itself a <label> and labels must not be nested.
+      var inner = li.querySelector(":scope > label");
+      return { html: (inner ? inner.innerHTML : li.innerHTML).trim(), correct: correct };
+    });
+
+    if (!options.some(function (o) { return o.correct; })) return null;
+
+    var name = "q" + index + "-" + Math.random().toString(36).slice(2, 7);
+    var wrap = document.createElement("div");
+    wrap.className = "quiz-options";
+
+    options.forEach(function (opt, i) {
+      var id = name + "-" + i;
+      var row = document.createElement("label");
+      row.className = "quiz-option";
+      row.setAttribute("for", id);
+
+      var input = document.createElement("input");
+      input.type = "radio";
+      input.name = name;
+      input.id = id;
+      input.value = String(i);
+
+      var text = document.createElement("span");
+      text.className = "quiz-option-text";
+      text.innerHTML = opt.html;
+
+      var mark = document.createElement("span");
+      mark.className = "quiz-mark";
+      mark.setAttribute("aria-hidden", "true");
+
+      row.appendChild(input);
+      row.appendChild(text);
+      row.appendChild(mark);
+      wrap.appendChild(row);
+    });
+
+    list.replaceWith(wrap);
+
+    var controls = document.createElement("div");
+    controls.className = "quiz-controls";
+
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "quiz-check";
+    button.textContent = "Check answer";
+
+    var verdict = document.createElement("span");
+    verdict.className = "quiz-verdict";
+    verdict.setAttribute("role", "status");
+
+    controls.appendChild(button);
+    controls.appendChild(verdict);
+
+    if (feedbackEl) block.insertBefore(controls, feedbackEl);
+    else block.appendChild(controls);
+
+    var answered = false;
+
+    button.addEventListener("click", function () {
+      var picked = wrap.querySelector("input:checked");
+      if (!picked) {
+        verdict.textContent = "Choose an option first.";
+        verdict.className = "quiz-verdict quiz-neutral";
+        return;
+      }
+
+      var chosen = parseInt(picked.value, 10);
+      var isRight = options[chosen].correct;
+
+      Array.prototype.forEach.call(wrap.children, function (row, i) {
+        row.classList.remove("is-correct", "is-wrong");
+        if (options[i].correct) row.classList.add("is-correct");
+        else if (i === chosen) row.classList.add("is-wrong");
+        row.querySelector("input").disabled = true;
+      });
+
+      verdict.textContent = isRight ? "Correct" : "Not correct";
+      verdict.className = "quiz-verdict " + (isRight ? "quiz-right" : "quiz-wrong");
+      button.disabled = true;
+      if (feedbackEl) feedbackEl.classList.remove("feedback-hidden");
+
+      if (!answered) {
+        answered = true;
+        block.dispatchEvent(new CustomEvent("quiz:answered", {
+          bubbles: true,
+          detail: { correct: isRight }
+        }));
+      }
+    });
+
+    return block;
+  }
+
+  function buildFillIn(span) {
+    // Quarto rewrites custom attributes on spans to data-*, so accept either.
+    function attr(name) {
+      return span.getAttribute(name) || span.getAttribute("data-" + name);
+    }
+    var raw = attr("answer");
+    if (raw === null || raw.trim() === "") return;
+
+    // A single value that parses fully as a number is graded numerically;
+    // anything else is graded as text against the |-separated alternatives.
+    var numeric = raw.trim() !== "" && isFinite(Number(raw.trim().replace(",", ".")));
+    var expected = numeric ? Number(raw.trim().replace(",", ".")) : NaN;
+    var accepted = raw.split("|").map(function (a) { return a.trim().toLowerCase(); });
+    var tol = parseFloat(attr("tol"));
+    if (isNaN(tol)) tol = 0.01;
+
+    var holder = document.createElement("span");
+    holder.className = "quiz-fitb";
+
+    var input = document.createElement("input");
+    input.type = "text";
+    if (numeric) input.inputMode = "decimal";
+    input.setAttribute("aria-label", "Your answer");
+    input.size = numeric ? 7 : Math.max(8, Math.max.apply(null, accepted.map(function (a) { return a.length; })) + 2);
+
+    var mark = document.createElement("span");
+    mark.className = "quiz-fitb-mark";
+    mark.setAttribute("aria-hidden", "true");
+
+    function grade() {
+      var typed = input.value.trim();
+      if (typed === "") {
+        holder.className = "quiz-fitb";
+        mark.textContent = "";
+        return;
+      }
+      var ok;
+      if (numeric) {
+        var given = Number(typed.replace(",", "."));
+        ok = isFinite(given) && Math.abs(given - expected) <= tol;
+      } else {
+        ok = accepted.indexOf(typed.toLowerCase()) !== -1;
+      }
+      holder.className = "quiz-fitb " + (ok ? "is-correct" : "is-wrong");
+      mark.textContent = ok ? "✓" : "✗";
+      input.setAttribute("aria-invalid", ok ? "false" : "true");
+    }
+
+    input.addEventListener("change", grade);
+    input.addEventListener("blur", grade);
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") { e.preventDefault(); grade(); }
+    });
+
+    holder.appendChild(input);
+    holder.appendChild(mark);
+    span.replaceWith(holder);
+  }
+
+  function attachScoreboard(board, questions) {
+    var total = questions.length;
+    var answered = 0;
+    var right = 0;
+
+    function paint() {
+      board.innerHTML =
+        '<span class="score-count">' + right + " / " + total + "</span>" +
+        '<span class="score-label">' +
+        (answered === 0
+          ? "questions correct — nothing answered yet"
+          : answered < total
+            ? "correct, " + (total - answered) + " still to go"
+            : "correct. All questions answered.") +
+        "</span>";
+    }
+
+    document.addEventListener("quiz:answered", function (e) {
+      answered += 1;
+      if (e.detail.correct) right += 1;
+      paint();
+    });
+
+    paint();
+  }
+
+  function init() {
+    var blocks = document.querySelectorAll("div.question");
+    var live = [];
+    Array.prototype.forEach.call(blocks, function (b, i) {
+      var made = buildMultipleChoice(b, i);
+      if (made) live.push(made);
+    });
+
+    Array.prototype.forEach.call(
+      document.querySelectorAll("span.fitb"),
+      buildFillIn
+    );
+
+    var board = document.querySelector(".quiz-score");
+    if (board && live.length) attachScoreboard(board, live);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>

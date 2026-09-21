@@ -1,0 +1,32 @@
+---
+title: "Glossary"
+subtitle: "Every technical word used in this course, in plain language"
+number-sections: false
+---
+
+Terms are listed alphabetically. The right-hand column says where the term is
+explained in context.
+
+| Term | Meaning | Chapter |
+|---|---|---|
+| **Alt text** | A written description of an image, read aloud by screen readers and shown when the image cannot load | [4](04-media-tables-references.qmd) |
+| **Callout** | A coloured box for a note, tip, warning or similar remark | [3](03-write-text.qmd) |
+| **Commit** | A saved, labelled snapshot of your changes in a repository | [8](08-publish.qmd) |
+| **Docs folder** (`docs`) | The folder where the finished website is written. It is what gets published | [1](01-set-up.qmd), [8](08-publish.qmd) |
+| **GitHub / GitLab** | Websites that store projects online and can also show their web pages to the public | [8](08-publish.qmd) |
+| **Markdown** | A way of formatting text with a few plain symbols, such as `##` for a heading and `**` for bold | [3](03-write-text.qmd) |
+| **Mermaid** | A tool that draws a diagram from a short text description | [4](04-media-tables-references.qmd) |
+| **Pages** | The GitHub and GitLab feature that shows the files of a repository as a website | [8](08-publish.qmd) |
+| **Push** | Sending your commits from your computer to the online repository | [8](08-publish.qmd) |
+| **`.qmd` file** | A text file holding one chapter. The extension stands for "Quarto markdown" | [1](01-set-up.qmd) |
+| **Quarto** | The program that turns the text files into a website. It is included in RStudio | [1](01-set-up.qmd) |
+| **R** | The engine that RStudio runs on. You do not need to write R code for this template | [1](01-set-up.qmd) |
+| **Render** | To build the website from the text files. In RStudio: the **Render Website** button | [1](01-set-up.qmd) |
+| **Repository** | A project folder stored online together with the history of its changes | [8](08-publish.qmd) |
+| **RStudio** | The program in which you write the course and press Render | [1](01-set-up.qmd) |
+| **Sidebar** | The chapter list on the left of every page; set in `_quarto.yml` | [2](02-plan-and-structure.qmd) |
+| **Source / Visual mode** | The two views of the RStudio editor: plain text with symbols, or a word-processor look | [1](01-set-up.qmd), [3](03-write-text.qmd) |
+| **Speaker notes** | Notes on a slide that only the presenter sees | [6](06-slides.qmd) |
+| **Task list** | A bullet list with checkboxes; here it is how quiz options are written | [5](05-quizzes.qmd) |
+| **WCAG** | The Web Content Accessibility Guidelines, the standard for accessible websites | [7](07-check-before-release.qmd) |
+| **YAML** (`.yml`) | A strict, indentation-based settings format. `_quarto.yml` is written in it | [2](02-plan-and-structure.qmd) |

@@ -1,0 +1,128 @@
+---
+title: "Building a Course with This Template"
+subtitle: "From an empty folder to a finished course website in the university's corporate design"
+author: "Digitalisierungszentrum, Universitätsmedizin Göttingen"
+date: last-modified
+date-format: "D MMMM YYYY"
+number-sections: false
+---
+
+You know your subject and you want to teach it online. What you do not want is
+to learn web design, or to argue with a learning platform's editor about where a
+picture goes.
+
+This template turns plain text files into a complete course website: chapters
+with a sidebar, search, self-check quizzes, lecture slides, a dark mode, and a
+layout that works on a phone. Colours, typeface and logo placement already
+follow the Universitätsmedizin Göttingen corporate design, so nobody has to
+decide them again.
+
+**This course is built with the template it teaches.** Every feature you read
+about is in use on the page in front of you, and the files behind these pages
+are the worked examples. When a chapter says "see how it is done", open the
+matching `.qmd` file and look.
+
+```{mermaid}
+%%| label: fig-pipeline
+%%| fig-cap: "The workflow of this course. You repeat the first three steps as often as you like; publishing is a routine of three clicks."
+%%| fig-alt: "Four boxes in a row, joined by arrows: 1 Write chapters as text files, 2 Render in RStudio, 3 Check the pages in the docs folder, 4 Publish on GitHub or GitLab Pages."
+flowchart LR
+    A["Step 1<br/>Write chapters<br/>as text files"] --> B["Step 2<br/>Render with one<br/>click in RStudio"]
+    B --> C["Step 3<br/>Check the pages<br/>in the docs folder"]
+    C --> D["Step 4<br/>Publish on GitHub<br/>or GitLab Pages"]
+
+    classDef mine fill:#203151,stroke:#203151,stroke-width:1.5px,color:#ffffff
+    classDef theirs fill:#f1a400,stroke:#f1a400,stroke-width:1.5px,color:#000000
+    class A,B,C mine
+    class D theirs
+```
+
+::: {.objectives}
+**By the end of this course you will be able to**
+
+- Install the software and build your first course website from the template
+- Plan a course as chapters with objectives that can be checked
+- Write content: headings, images, tables, callouts, diagrams, references
+- Add self-check questions that give learners immediate feedback
+- Prepare lecture slides and run a checklist before release
+- Publish the course on GitHub or GitLab Pages, and update it later
+:::
+
+## How this course works
+
+There are eight short chapters, in four groups. Each has the same shape:
+objectives at the top, explanation with examples, and questions at the end. Plan
+on about **three to four hours** in total, and take them in order the first time.
+You can stop after any chapter and come back.
+
+```{mermaid}
+%%| label: fig-course-map
+%%| fig-cap: "Route through the material. Take the chapters in order the first time."
+%%| fig-alt: "Eight chapters in four groups. Get going: 1 Set up and first render, 2 Plan and structure. Write: 3 Write text, 4 Images, tables, diagrams and references, 5 Quizzes. Slides and release: 6 Slides, 7 Check before release, 8 Publish."
+flowchart LR
+    subgraph G1["Get going"]
+        A["1 Set up<br/>and first render"] --> B["2 Plan and<br/>structure"]
+    end
+    subgraph G2["Write"]
+        C["3 Write<br/>text"] --> D["4 Images, tables,<br/>references"] --> E["5 Quizzes"]
+    end
+    subgraph G3["Slides and release"]
+        F["6 Slides"] --> G["7 Check before<br/>release"] --> H["8 Publish"]
+    end
+    B --> C
+    E --> F
+
+    classDef basics fill:#ffffff,stroke:#134a84,stroke-width:2px,color:#000000
+    classDef writing fill:#134a84,stroke:#134a84,stroke-width:2px,color:#ffffff
+    classDef finish fill:#f1a400,stroke:#f1a400,stroke-width:2px,color:#000000
+    class A,B basics
+    class C,D,E writing
+    class F,G,H finish
+```
+
+If you are in a hurry: Chapter 1 gets you a running project, Chapter 7 is the
+checklist, and Chapter 8 gets the course online. Everything in between is what
+makes the course good.
+
+## Try it now
+
+Every chapter ends with questions like this one. Choose an answer and press
+**Check answer**; the page tells you whether you were right and why. Nothing is
+recorded anywhere, so guessing costs you nothing.
+
+::: {.question}
+In this template, what does one chapter correspond to?
+
+- [ ] One line in the navigation file
+- [x] One `.qmd` text file
+- [ ] One folder of images
+- [ ] One page in the Word document you started from
+
+::: {.feedback}
+Each chapter is a single `.qmd` file: plain text with a small amount of markup.
+The navigation file only lists the chapters and puts them in order. Chapter 2
+covers how the two fit together.
+:::
+:::
+
+Some questions ask for a word instead. The tool that turns the text files into a
+website is called [?]{.fitb answer="Quarto"} (type it in and click elsewhere).
+
+## Before you start
+
+::: {.callout-note appearance="simple"}
+## What you need
+
+**R** and **RStudio**, both free. RStudio includes Quarto, the tool that builds
+the website, so there is nothing else to install. You will not write or run any
+R code: R is simply what RStudio runs on. A modern web browser is all a reader
+needs.
+:::
+
+::: {.callout-tip appearance="simple"}
+## Using this as your starting point
+
+Chapter 1 explains exactly how to copy this project and turn it into your own
+course. In short: duplicate the folder, replace the chapters, change a handful of
+lines in one settings file.
+:::

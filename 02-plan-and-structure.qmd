@@ -1,0 +1,243 @@
+---
+title: "Plan and Structure Your Course"
+subtitle: "Decide what learners should be able to do, then build the chapter list"
+---
+
+::: {.objectives}
+**In this chapter**
+
+- Write learning objectives that say what a learner can *do*
+- Cut a topic into chapters of a sensible size
+- Find the four places that make up the project's skeleton
+- Add, reorder and remove chapters
+- Start your own course from the empty chapter skeleton
+:::
+
+## Plan on paper first
+
+The most common mistake in online courses is starting with the material: "I have
+forty slides, let me put them online." Start with the learner instead. Three
+questions, in this order:
+
+1. **Who is it for, and what do they already know?**
+2. **What should they be able to do afterwards?** Not "know about" or
+   "understand", but do.
+3. **How will they, and you, find out that they can?**
+
+Only then decide what to teach. Planning backwards from the outcome like this is
+sometimes called *backward design* [@wiggins2005understanding], and it removes
+most of the material you would otherwise have felt obliged to include.
+
+### Writing objectives that can be checked
+
+An objective is useful when you can imagine the question that tests it. Vague
+verbs cannot be tested; concrete verbs can [@anderson2001taxonomy].
+
+| Vague | Concrete |
+|---|---|
+| Understand hand hygiene | List the five moments for hand disinfection |
+| Know the consent process | Explain to a patient, in plain words, what they are consenting to |
+| Be familiar with the system | Enter a new patient record without help |
+: Turning vague objectives into checkable ones {#tbl-objectives}
+
+Aim for three to six objectives per course and two to four per chapter. They go
+at the top of the page in the blue **objectives** panel, and they become your
+quiz questions later.
+
+### Cut it into chapters
+
+A chapter should be one topic that a learner can finish in a single sitting,
+roughly **15 to 30 minutes**. This is a rule of thumb, not a law, but there is
+good reason behind it: people can hold only a few new things in mind at once, so
+material that introduces one idea at a time, and lets the learner use it before
+adding the next, is easier to learn from [@sweller1988cognitive].
+
+Inside a chapter, follow the same rhythm every time. Learners then always know
+where they are:
+
+1. Objectives (what this chapter is for)
+2. Explanation in short sections, each with its own heading
+3. A **key point** box for the one thing to remember
+4. Questions to check understanding
+
+That last step is not decoration. Answering a question about something you just
+read helps you remember it far better than reading it again
+[@roediger2006test]. Put the questions in.
+
+::: {.callout-tip appearance="simple"}
+## Use the worksheet
+
+Before creating any file, fill in this table on paper. If you cannot complete a
+row, that is the part of the course to think about next.
+
+| Chapter title | Objective (what can the learner do?) | How will they check it? | Length |
+|---|---|---|---|
+| | | | |
+:::
+
+## The four places that matter
+
+Everything in the project is either a chapter, a setting, a picture or the
+appearance. You only need to know four places:
+
+| Where | What it holds | You edit it |
+|---|---|---|
+| `01-….qmd`, `02-….qmd`, … | The chapters, one file each | Constantly |
+| `_quarto.yml` | The settings: course title, chapter order, footer | When you add or reorder chapters, and once at the start |
+| `images/` | Pictures, and the logo | When you add pictures |
+| `assets/` | Colours, fonts and quiz behaviour, already set up in the university's corporate design | Never, unless you are asked to |
+: The project skeleton {#tbl-skeleton}
+
+Besides these: `index.qmd` is the landing page, `glossary.qmd` and
+`references.qmd` are the reference pages, `slides/` holds lecture slides, and
+`docs/` is where the finished website appears. Do not edit anything in `docs/`.
+
+## Name your files
+
+Chapter files are named with a number, then a short description:
+`03-write-text.qmd`. The rules are boring but they prevent trouble:
+
+- Lowercase letters, digits and hyphens only. No spaces, no umlauts.
+- The number keeps them in order in the *Files* panel. It does **not** control
+  the order on the website; the settings file does.
+- A file whose name starts with an underscore, like `_draft-chapter.qmd`, is
+  **ignored** when the website is built. Use that for unfinished work.
+
+## The chapter list: `_quarto.yml`
+
+Open `_quarto.yml`. Most of the file you can leave alone. The part that matters
+for structure is the `sidebar:` block, which is the chapter list learners see on
+the left of every page:
+
+```yaml
+  sidebar:
+    style: docked
+    contents:
+      - index.qmd
+      - section: "Basics"
+        contents:
+          - 01-first-steps.qmd
+          - 02-the-workflow.qmd
+      - section: "Practice"
+        contents:
+          - 03-exercises.qmd
+```
+
+Read it top to bottom and it matches the sidebar exactly: a landing page, then a
+group called *Basics* with two chapters, then a group called *Practice* with one.
+
+::: {.callout-warning}
+## This file is strict about spaces
+
+Indentation carries meaning here. Use **spaces, never the Tab key**. Each level
+is indented two spaces further, a dash is followed by a space, and a colon is
+followed by a space. When in doubt, copy an existing line and change only the
+words.
+:::
+
+### Add a chapter
+
+1. Copy `_chapter-skeleton.qmd`, and name the copy, say, `04-feedback.qmd`.
+2. Open it, change the `title:` at the top and write the chapter.
+3. In `_quarto.yml`, add one line in the right place in the list:
+   `- 04-feedback.qmd`, indented to match its neighbours.
+4. Render.
+
+### Reorder, group or remove
+
+- **Reorder**: move the line up or down in the list.
+- **Group**: put chapters under a `- section: "Name"` block, as above.
+- **Remove**: delete its line from the list, then delete the file (or put an
+  underscore in front of its name to keep it as a draft). If you delete the file
+  but leave the line, the render will complain that it cannot find it.
+
+## The top menu
+
+The bar across the top has a few links (*Course*, *Slides*, *Glossary*). They are
+listed under `navbar:` in the same file, in the same style. Keep it short: three
+or four links. The chapters belong in the sidebar, not here.
+
+## Start your own course
+
+You have two sensible ways to begin.
+
+::: {.panel-tabset}
+
+## Keep this course as your manual
+
+Make a **copy** of the whole project folder for your own course, and keep the
+original untouched. Then you can consult this course while you work on yours.
+This is what we recommend for a first course.
+
+## Start from an empty project
+
+1. Copy the project folder and rename it as in Chapter 1.
+2. In `_quarto.yml`, replace the chapter list with your own (start with just
+   `index.qmd` and one chapter).
+3. Delete the eight chapter files of this course, or put an underscore in front of
+   them to keep them out of the build.
+4. Create your first chapter from `_chapter-skeleton.qmd`.
+5. Edit `index.qmd` for your own course, and change the title, description and
+   footer in `_quarto.yml`.
+
+:::
+
+## The landing page
+
+`index.qmd` is the first thing a learner sees. It should answer five questions
+in a few lines each: *What is this course? Who is it for? What will I be able to
+do afterwards? How long does it take? What do I need beforehand?* Put the
+objectives panel and a short route through the chapters on it. This course's own
+landing page is a working example.
+
+## Check your understanding
+
+::: {.quiz-score}
+:::
+
+::: {.question}
+Which of these is a learning objective that can be checked?
+
+- [ ] Understand the principles of good communication
+- [ ] Be aware of the risks of the procedure
+- [x] Explain the three main risks of the procedure to a colleague
+- [ ] Appreciate the importance of documentation
+
+::: {.feedback}
+Only the third names something a learner *does* that you could ask a question
+about. "Understand", "be aware of" and "appreciate" describe an inner state you
+cannot observe.
+:::
+:::
+
+::: {.question}
+You rename `05-quality.qmd` to `_05-quality.qmd`. What happens at the next render?
+
+- [ ] It appears at the top of the sidebar
+- [x] It is skipped, so it is not built into the website
+- [ ] The render fails
+- [ ] It is published with a "draft" label
+
+::: {.feedback}
+A leading underscore tells the build to ignore a file. It is the simplest way to
+keep unfinished work in the project without publishing it. If the chapter is
+still listed in `_quarto.yml`, remove that line too.
+:::
+:::
+
+::: {.question}
+The order of chapters in the sidebar is decided by:
+
+- [ ] The numbers in the file names
+- [ ] The alphabetical order of the titles
+- [x] The order of the lines in `_quarto.yml`
+- [ ] The date the files were last edited
+
+::: {.feedback}
+File numbers only help you keep the *Files* panel tidy. The sidebar follows the
+list in the settings file, so reordering means moving a line.
+:::
+:::
+
+A chapter should take a learner roughly [?]{.fitb answer="20" tol="10"} minutes.
+(Type a number of minutes and click elsewhere; anything from 10 to 30 counts.)

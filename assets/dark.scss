@@ -1,0 +1,54 @@
+/*-- scss:defaults --*/
+
+// Dark mode. Only the roles from theme.scss are redefined; every component
+// follows. Dunkelblau is the background, so the stylebook combination
+// "white text on the UMG blues" holds. The logo PNG has a white background,
+// so in dark mode it sits on a white plate (see --logo-plate below).
+
+// Quarto may stack this file before theme.scss, so it cannot rely on the
+// variables defined there. The brand palette is therefore repeated here;
+// change both places if you re-brand.
+$umg-punkt:  #6c8ca9;
+$umg-white:  #ffffff;
+$umg-yellow: #f1a400;
+$umg-dark:   #203151;
+
+$c-bg:         $umg-dark;
+$c-text:       $umg-white;
+$c-heading:    $umg-white;
+$c-accent:     mix($umg-punkt, $umg-white, 40%);   // light blue for links
+$c-accent-hover: $umg-white;
+$c-on-accent:  $umg-dark;
+$c-rule:       $umg-punkt;
+$c-muted:      mix($umg-white, $umg-dark, 72%);
+$c-surface:    mix($umg-white, $umg-dark, 7%);
+$c-line:       mix($umg-white, $umg-dark, 22%);
+$c-highlight:  $umg-yellow;
+$c-highlight-soft: mix($umg-yellow, $umg-dark, 16%);
+$c-on-highlight: $umg-white;
+$c-card:       mix($umg-white, $umg-dark, 7%);
+$c-navbar:     $umg-dark;
+$c-logo-plate:  $umg-white;
+
+$body-bg:      $c-bg;
+$body-color:   $c-text;
+$primary:      $c-accent;
+$secondary:    $c-muted;
+$link-color:   $c-accent;
+$link-hover-color: $c-accent-hover;
+$headings-color: $c-heading;
+$code-bg:      $c-surface;
+$code-color:   $umg-white;
+$toc-color:    $c-muted;
+$selection-bg: $c-line;
+$navbar-bg:    $c-navbar;
+$navbar-fg:    $c-heading;
+$navbar-hl:    $c-accent;
+$footer-bg:    $c-surface;
+$footer-fg:    $c-muted;
+
+$callout-color-note:      $c-accent;
+$callout-color-tip:       $umg-punkt;
+$callout-color-important: $umg-white;
+$callout-color-caution:   $umg-yellow;
+$callout-color-warning:   $umg-yellow;

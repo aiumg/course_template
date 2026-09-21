@@ -1,0 +1,188 @@
+---
+title: "Slides"
+subtitle: "A lecture deck built from the same kind of text file"
+---
+
+::: {.objectives}
+**In this chapter**
+
+- Decide whether a course needs slides at all
+- Open, edit and preview the slide deck that comes with the template
+- Structure slides, add speaker notes and reveal content step by step
+- Create a second deck, and link to it
+- Export slides as a PDF
+:::
+
+## Do you need slides?
+
+Not every course does. The chapters are meant to be read on their own. Slides are
+for a different situation: **you presenting live**, in a lecture or a webinar,
+where learners need something to look at while you talk.
+
+If you would only be copying the chapter text onto slides, skip them.
+
+## The deck that comes with the template
+
+Open `slides/lecture-01.qmd`. It is a text file like a chapter, and it turns into
+a full-screen presentation. It has the university's logo top right and the blue
+rule under each slide title, so it matches the course.
+
+To see it, render the website as usual and click **Slides** in the top menu. The
+deck opens in a new tab, and a click anywhere then the arrow keys move through it.
+
+::: {.callout-tip appearance="simple"}
+## Useful keys while presenting
+
+*Arrow keys* move between slides, *F* goes full-screen, *S* opens the speaker
+view with your notes and a timer, *O* shows an overview of all slides, and *Esc*
+leaves the overview.
+:::
+
+## Structure
+
+The top of the file, between the two lines of dashes, has the title and settings.
+Leave the settings as they are and change only `title`, `subtitle` and `author`.
+Below it, **every `##` heading starts a new slide**:
+
+````markdown
+## The problem
+
+Learners forget most of what they hear once.
+
+## Our approach
+
+- Explain briefly
+- Let them try
+- Ask a question
+````
+
+Compare with a chapter: the same headings and lists, only shorter. A slide should
+hold one idea and no more than about six lines.
+
+### Reveal step by step
+
+To show content one piece at a time, put a line containing `. . .` (three dots
+separated by spaces) where the pause should be:
+
+````markdown
+## Question
+
+What is the first step?
+
+. . .
+
+**Render the website.**
+````
+
+### Speaker notes
+
+Notes are visible to you only, in the speaker view (*S*):
+
+````markdown
+## Our approach
+
+- Explain briefly
+- Let them try
+
+::: {.notes}
+Mention the example from last week here. Two minutes.
+:::
+````
+
+### Two columns, images, emphasis
+
+````markdown
+:::: {.columns}
+::: {.column width="50%"}
+Text on the left.
+:::
+::: {.column width="50%"}
+![Caption](../images/placeholder.svg)
+:::
+::::
+````
+
+Notice the `../` before `images`. The slides live one folder deeper than the
+chapters, so they have to step up out of it to find the pictures.
+
+Two coloured boxes are ready-made for emphasis: `::: {.callout-blue}` (white text
+on blue) and `::: {.callout-yellow}` (black text on yellow), both used as a
+normal block with a closing `:::`. Use them sparingly.
+
+## Slides that work
+
+- **One idea per slide.** If you need "and" in the heading, make two slides.
+- **Few words, large.** If it cannot be read from the back of the room, cut it.
+- **Do not read the slide aloud.** Put the detail in the chapter and the point on
+  the slide.
+- **Use pictures** for what a picture shows better than words, with alt text as
+  in Chapter 4.
+- **End with what to do**, not with "Thank you" or "Questions?".
+
+## A second deck
+
+1. In the *Files* panel, open the `slides` folder. Copy `lecture-01.qmd` and name
+   the copy `lecture-02.qmd`.
+2. Change its title and slides, and render the website.
+3. Link to it from where learners will look for it: from a chapter with
+   `[Lecture 2](slides/lecture-02.qmd)`, or (from within the `slides` folder
+   itself) simply `lecture-02.qmd`. You can also add it to the top menu in
+   `_quarto.yml`, under `navbar:`, in the same way as the existing *Slides* entry.
+
+## A PDF for handouts
+
+Open the slides in the browser and add `?print-pdf` to the end of the address, so
+it ends in `lecture-01.html?print-pdf`. Press *Enter*, then use the browser's
+print function and choose **Save as PDF**. In the print dialog, set *Margins* to
+*None* and tick *Background graphics*. The PDF then keeps the colours and the
+logo.
+
+## Check your understanding
+
+::: {.quiz-score}
+:::
+
+::: {.question}
+What starts a new slide?
+
+- [ ] A blank line
+- [ ] A line with three dashes only
+- [x] A `##` heading
+- [ ] The words "Next slide"
+
+::: {.feedback}
+Every second-level heading starts a new slide, exactly as it starts a new section
+in a chapter.
+:::
+:::
+
+::: {.question}
+A slide has ten bullet points in small print. What is the best repair?
+
+- [ ] Reduce the font size further
+- [x] Split it into several slides with one idea each, and move the detail into the chapter
+- [ ] Put the bullets into a table
+- [ ] Make the text yellow
+
+::: {.feedback}
+A slide supports the speaker; it is not a document. Cut it down and let the
+chapter carry the detail.
+:::
+:::
+
+::: {.question}
+You want a picture on a slide. The file is `images/diagram.png` in the project. What is the link in the slide file?
+
+- [ ] `images/diagram.png`
+- [x] `../images/diagram.png`
+- [ ] `/images/diagram.png`
+- [ ] `diagram.png`
+
+::: {.feedback}
+The slide files live in the `slides` folder, one level below the project's main
+folder, so they must step up with `../` to reach the images.
+:::
+:::
+
+To show a slide's content one piece at a time, you put a line with the characters
+[?]{.fitb answer=". . .|..."} at the point of the pause. (Type them with spaces.)

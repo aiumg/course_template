@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Placeholder picture">
+  <rect width="1200" height="675" fill="#203151"/>
+  <rect x="24" y="24" width="1152" height="627" fill="none" stroke="#6c8ca9" stroke-width="4"/>
+  <rect x="96" y="120" width="18" height="18" fill="#6c8ca9"/>
+  <rect x="96" y="150" width="18" height="18" fill="#6c8ca9"/>
+  <rect x="96" y="180" width="18" height="18" fill="#6c8ca9"/>
+  <text x="140" y="190" font-family="Interstate, Calibri, Carlito, Arial, sans-serif" font-size="72" font-weight="600" fill="#ffffff">Your picture goes here</text>
+  <text x="140" y="270" font-family="Interstate, Calibri, Carlito, Arial, sans-serif" font-size="36" fill="#ffffff">Replace this file, or point the image link at your own file.</text>
+  <rect x="96" y="560" width="220" height="10" fill="#f1a400"/>
+</svg>

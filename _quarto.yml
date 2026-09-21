@@ -1,0 +1,99 @@
+project:
+  type: website
+  # GitHub Pages can serve a repository's docs folder directly.
+  output-dir: docs
+  # Build only the course pages; README.md is documentation for maintainers.
+  render:
+    - "*.qmd"
+    - "slides/*.qmd"
+  resources:
+    - .nojekyll
+
+# Lines marked "CHANGE" are the ones to edit when you start your own course.
+website:
+  title: "Course Template"                                   # CHANGE
+  description: "How to build an e-learning course with this template."   # CHANGE
+  site-url: https://example.org/course-template              # CHANGE: where the course will be served
+  favicon: images/favicon.png
+
+  # Uncomment for a notice bar under the navigation, e.g. "Draft version".
+  # announcement:
+  #   icon: info-circle
+  #   dismissable: true
+  #   content: "This course is a draft."
+  #   type: primary
+  #   position: below-navbar
+
+  navbar:
+    # Corporate design: the logo sits top right. The CSS in assets/theme.scss
+    # moves it there and sets the clear space around it.
+    logo: images/logo.png
+    logo-alt: "Universitätsmedizin Göttingen – Digitalisierungszentrum"
+    search: true
+    left:
+      - text: "Course"
+        href: index.qmd
+      - text: "Slides"
+        href: slides/lecture-01.qmd
+        target: _blank
+      - text: "Glossary"
+        href: glossary.qmd
+
+  sidebar:
+    style: docked
+    search: false
+    contents:                                                # CHANGE: your chapters, in order
+      - index.qmd
+      - section: "Get going"
+        contents:
+          - 01-set-up.qmd
+          - 02-plan-and-structure.qmd
+      - section: "Write"
+        contents:
+          - 03-write-text.qmd
+          - 04-media-tables-references.qmd
+          - 05-quizzes.qmd
+      - section: "Slides and release"
+        contents:
+          - 06-slides.qmd
+          - 07-check-before-release.qmd
+          - 08-publish.qmd
+      - section: "Reference"
+        contents:
+          - glossary.qmd
+          - references.qmd
+
+  page-footer:
+    left: "Course Template · Universitätsmedizin Göttingen"   # CHANGE
+    # right:
+    #   - text: "Imprint"
+    #     href: https://example.org/imprint
+
+  page-navigation: true
+  back-to-top-navigation: true
+
+format:
+  html:
+    lang: en
+    respect-user-color-scheme: true   # follow the reader's light/dark setting
+    theme:
+      light: [default, assets/theme.scss]
+      dark: [default, assets/theme.scss, assets/dark.scss]
+    css: assets/quiz.css
+    include-after-body: assets/quiz-include.html
+    toc: true
+    toc-depth: 3
+    toc-title: "On this page"
+    number-sections: true
+    number-depth: 2
+    code-copy: true
+    code-overflow: wrap
+    highlight-style: github
+    fig-align: center
+    lightbox: true
+    citations-hover: true
+    footnotes-hover: true
+    anchor-sections: true
+    smooth-scroll: true
+
+bibliography: references.bib

@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Publish on GitHub or GitLab Pages – Course Template</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./glossary.html" rel="next">
+<link href="./07-check-before-release.html" rel="prev">
+<link href="./images/favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-9df7c5d75459a99b3f08a4c7c46ab3d3.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-86b13758c740fe5fc4c0db42d8ae5540.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-df0e2c534671052b61e91c1c26225d51.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-d16cecc895497f48aca1cebec95da5d0.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="assets/quiz.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/logo.png" alt="Universitätsmedizin Göttingen – Digitalisierungszentrum" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Course Template</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Course</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./slides/lecture-01.html" target="_blank"> 
+<span class="menu-text">Slides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./glossary.html"> 
+<span class="menu-text">Glossary</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-slides.html">Slides and release</a></li><li class="breadcrumb-item"><a href="./08-publish.html">Publish on GitHub or GitLab Pages</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Building a Course with This Template</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Get going</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-set-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Set Up and First Render</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-plan-and-structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Plan and Structure Your Course</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Write</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-write-text.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Write Text</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-media-tables-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Images, Tables, Diagrams and References</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-quizzes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quizzes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Slides and release</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slides</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-check-before-release.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Check Before Release</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-publish.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Publish on GitHub or GitLab Pages</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Reference</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References and Further Reading</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-publishing-means" id="toc-what-publishing-means" class="nav-link active" data-scroll-target="#what-publishing-means"><span class="header-section-number">1</span> What publishing means</a></li>
+  <li><a href="#who-does-what" id="toc-who-does-what" class="nav-link" data-scroll-target="#who-does-what"><span class="header-section-number">2</span> Who does what</a></li>
+  <li><a href="#github-or-gitlab" id="toc-github-or-gitlab" class="nav-link" data-scroll-target="#github-or-gitlab"><span class="header-section-number">3</span> GitHub or GitLab?</a></li>
+  <li><a href="#before-you-publish" id="toc-before-you-publish" class="nav-link" data-scroll-target="#before-you-publish"><span class="header-section-number">4</span> Before you publish</a></li>
+  <li><a href="#one-off-setup" id="toc-one-off-setup" class="nav-link" data-scroll-target="#one-off-setup"><span class="header-section-number">5</span> One-off setup</a>
+  <ul class="collapse">
+  <li><a href="#step-a1-an-online-repository" id="toc-step-a1-an-online-repository" class="nav-link" data-scroll-target="#step-a1-an-online-repository">Step A1: an online repository</a></li>
+  <li><a href="#step-a2-switch-on-pages" id="toc-step-a2-switch-on-pages" class="nav-link" data-scroll-target="#step-a2-switch-on-pages">Step A2: switch on Pages</a></li>
+  </ul></li>
+  <li><a href="#the-routine-render-commit-push" id="toc-the-routine-render-commit-push" class="nav-link" data-scroll-target="#the-routine-render-commit-push"><span class="header-section-number">6</span> The routine: render, commit, push</a></li>
+  <li><a href="#check-the-published-course" id="toc-check-the-published-course" class="nav-link" data-scroll-target="#check-the-published-course"><span class="header-section-number">7</span> Check the published course</a></li>
+  <li><a href="#when-something-goes-wrong" id="toc-when-something-goes-wrong" class="nav-link" data-scroll-target="#when-something-goes-wrong"><span class="header-section-number">8</span> When something goes wrong</a></li>
+  <li><a href="#fixing-mistakes" id="toc-fixing-mistakes" class="nav-link" data-scroll-target="#fixing-mistakes"><span class="header-section-number">9</span> Fixing mistakes</a></li>
+  <li><a href="#public-means-public" id="toc-public-means-public" class="nav-link" data-scroll-target="#public-means-public"><span class="header-section-number">10</span> Public means public</a></li>
+  <li><a href="#your-course-is-live" id="toc-your-course-is-live" class="nav-link" data-scroll-target="#your-course-is-live"><span class="header-section-number">11</span> Your course is live</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding"><span class="header-section-number">12</span> Check your understanding</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-slides.html">Slides and release</a></li><li class="breadcrumb-item"><a href="./08-publish.html">Publish on GitHub or GitLab Pages</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Publish on GitHub or GitLab Pages</h1>
+<p class="subtitle lead">From the finished folder on your computer to a web address learners can open</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="objectives">
+<p><strong>In this chapter</strong></p>
+<ul>
+<li>Explain what publishing means here, and what only has to be done once</li>
+<li>Prepare the project for publishing</li>
+<li>Put the course online and update it later</li>
+<li>Check the published course, and fix what went wrong</li>
+<li>Know what “public” means before you press the button</li>
+</ul>
+</div>
+<section id="what-publishing-means" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="what-publishing-means"><span class="header-section-number">1</span> What publishing means</h2>
+<p>When you press <strong>Render Website</strong>, RStudio builds the course into a folder called <code>docs</code>. That folder is a complete website. Publishing means <em>copying that folder to a place on the internet that shows it as a web page</em>.</p>
+<p>GitHub and GitLab are websites where projects are stored online. Both can also show the website files they hold to the public: this feature is called <strong>Pages</strong>, and the result is an ordinary web address. Your course is a set of files; the platform hands them to whoever asks.</p>
+<p>Three words you will meet:</p>
+<ul>
+<li><strong>Repository</strong>: your project folder, stored online together with its history.</li>
+<li><strong>Commit</strong>: saving a labelled snapshot of your changes. You give it a short message, such as “Update chapter 3”.</li>
+<li><strong>Push</strong>: sending your saved snapshots from your computer to the online repository.</li>
+</ul>
+<div class="keypoint">
+<p><strong>Key point</strong></p>
+<p>The routine every time is three steps: <strong>render, commit, push.</strong> The rest of this chapter is a one-off setup, and it is fine, even normal, to have someone from your team do that part with you.</p>
+</div>
+</section>
+<section id="who-does-what" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="who-does-what"><span class="header-section-number">2</span> Who does what</h2>
+<div id="tbl-roles" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-roles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: The one-off setup and the routine
+</figcaption>
+<div aria-describedby="tbl-roles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>What</th>
+<th>How often</th>
+<th>Who</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>A</strong></td>
+<td>Create the online repository, connect it to your computer, switch on Pages</td>
+<td>Once per course</td>
+<td>You with help, or your team</td>
+</tr>
+<tr class="even">
+<td><strong>B</strong></td>
+<td>Render, commit, push</td>
+<td>Every release</td>
+<td>You</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>If your team has already set up the repository and Pages for you, skip to <a href="#the-routine-render-commit-push">the routine</a>.</p>
+</section>
+<section id="github-or-gitlab" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="github-or-gitlab"><span class="header-section-number">3</span> GitHub or GitLab?</h2>
+<p>Your institution decides; you do not need to choose. Both do the job.</p>
+<div id="tbl-platforms" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-platforms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: GitHub and GitLab Pages compared
+</figcaption>
+<div aria-describedby="tbl-platforms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>GitHub</th>
+<th>GitLab</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Address of the course</td>
+<td><code>https://&lt;account&gt;.github.io/&lt;repository&gt;/</code></td>
+<td>Depends on the installation, for example <code>https://&lt;group&gt;.pages.&lt;institution&gt;/&lt;project&gt;/</code></td>
+</tr>
+<tr class="even">
+<td>Who can read it</td>
+<td>Anyone, on the free plan</td>
+<td>Anyone, or only members of the project, if the installation allows</td>
+</tr>
+<tr class="odd">
+<td>Setup</td>
+<td>A settings page, no extra files</td>
+<td>Needs a small automation file; see below</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>If your course must not be public (for example, only for enrolled students), do not use a free public GitHub repository. Ask your team about the options on your institution’s GitLab, or about linking the course from the learning platform behind a login.</p>
+</section>
+<section id="before-you-publish" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="before-you-publish"><span class="header-section-number">4</span> Before you publish</h2>
+<ol type="1">
+<li>Finish Chapter 7: the checklist.</li>
+<li>In <code>_quarto.yml</code>, set <code>site-url</code> to the address the course will have (from the table above). If you do not know it yet, publish once, read the address off the Pages settings, and then correct it.</li>
+<li>Click <strong>Render Website</strong> one last time.</li>
+</ol>
+<p>The project contains an empty file named <code>.nojekyll</code>. Leave it alone; it tells GitHub to serve your files exactly as they are. It starts with a dot, so your computer may hide it. That is fine.</p>
+</section>
+<section id="one-off-setup" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="one-off-setup"><span class="header-section-number">5</span> One-off setup</h2>
+<section id="step-a1-an-online-repository" class="level3">
+<h3 class="anchored" data-anchor-id="step-a1-an-online-repository">Step A1: an online repository</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">GitHub</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">GitLab</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>The simplest route for a beginner is the free program <strong>GitHub Desktop</strong>.</p>
+<ol type="1">
+<li>Create an account at github.com if you do not have one. Install GitHub Desktop from <a href="https://desktop.github.com">desktop.github.com</a> and sign in.</li>
+<li>In GitHub Desktop, choose <em>File → Add local repository…</em> and pick your project folder. If it says that the folder is not a repository yet, click the link offering to create one.</li>
+<li>Click <strong>Publish repository</strong>. Give it a name in lowercase with hyphens. For free Pages the repository has to be public, so <strong>untick “Keep this code private”</strong>. Click <em>Publish</em>.</li>
+</ol>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>GitLab installations differ (most institutions log in with the university account), and there is no official desktop program. Ask your team to create the project and to connect it to RStudio with you. Once that is done, RStudio’s <strong>Git</strong> tab (in the upper-right panel) does everything in the routine below.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="step-a2-switch-on-pages" class="level3">
+<h3 class="anchored" data-anchor-id="step-a2-switch-on-pages">Step A2: switch on Pages</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">GitHub</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">GitLab</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<ol type="1">
+<li>Open the repository on github.com and click <strong>Settings</strong>.</li>
+<li>In the left menu, click <strong>Pages</strong>.</li>
+<li>Under <em>Build and deployment</em>, set <strong>Source</strong> to <em>Deploy from a branch</em>.</li>
+<li>Under <em>Branch</em>, choose <strong>main</strong> and, in the folder drop-down next to it, <strong>/docs</strong>. Click <strong>Save</strong>.</li>
+<li>Wait a minute or two and reload the page. The address of your course appears at the top.</li>
+</ol>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>GitLab shows Pages through a small automation file in the project, called <code>.gitlab-ci.yml</code>. It differs between installations, so the template does not include one. Ask whoever administers your GitLab; they will know the standard one for your institution and can add it in a few minutes. Afterwards you never touch it.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+For the person who sets it up
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A minimal file that publishes the already-built <code>docs</code> folder, as a starting point; adapt it to your installation’s runners and rules:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pages</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> deploy</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p public</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cp -r docs/. public/</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">artifacts</span><span class="kw">:</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">paths</span><span class="kw">:</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> public</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">rules</span><span class="kw">:</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">if</span><span class="kw">:</span><span class="at"> $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>It does not build the course. The author builds it in RStudio and commits the <code>docs</code> folder.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-routine-render-commit-push" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="the-routine-render-commit-push"><span class="header-section-number">6</span> The routine: render, commit, push</h2>
+<p>Every time you want to release a new version:</p>
+<ol type="1">
+<li><strong>Render.</strong> In RStudio, click <strong>Render Website</strong> and wait for it to finish without errors.</li>
+<li><strong>Commit and push.</strong> Save a snapshot and send it online. Steps below.</li>
+<li><strong>Wait, then look.</strong> It takes from a few seconds to a few minutes for the change to appear. Then open your course address and press <em>Ctrl+F5</em> so the browser fetches the newest version.</li>
+</ol>
+<p>Committing and pushing, in detail:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">GitHub Desktop</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">RStudio Git tab</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Open GitHub Desktop. The left panel lists the changed files. There are usually many, because the whole website is rebuilt; that is normal. In the box at the bottom left, type a short summary such as <em>Update chapter 3</em>, and click <strong>Commit to main</strong>. Then click <strong>Push origin</strong> at the top.</p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>Open the <strong>Git</strong> tab. Click one file, press <em>Ctrl+A</em> to select all, and click <strong>Stage</strong>. Click <strong>Commit</strong>, type a message, and click <strong>Commit</strong> again. Then click the green <strong>Push</strong> arrow.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="check-the-published-course" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="check-the-published-course"><span class="header-section-number">7</span> Check the published course</h2>
+<p>Open the live address and try it like a learner would:</p>
+<ul>
+<li>The navigation, sidebar and logo appear, and the colours are right.</li>
+<li>Pictures load, and a diagram is drawn.</li>
+<li>A quiz question works when you click <strong>Check answer</strong>.</li>
+<li>Search finds a word from a chapter.</li>
+<li>The <em>Slides</em> link in the top menu opens the slides.</li>
+<li>It looks right on your phone.</li>
+</ul>
+</section>
+<section id="when-something-goes-wrong" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="when-something-goes-wrong"><span class="header-section-number">8</span> When something goes wrong</h2>
+<div id="tbl-publishing-problems" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-publishing-problems-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Publishing problems and their usual fixes
+</figcaption>
+<div aria-describedby="tbl-publishing-problems-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>What you see</th>
+<th>Likely cause</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“404” or “Site not found” on the address</td>
+<td>Pages is not switched on yet, or points at the wrong folder</td>
+<td>Check Settings → Pages: branch <em>main</em>, folder <em>/docs</em>. Wait a few minutes after saving</td>
+</tr>
+<tr class="even">
+<td>The page shows but with no styling, or pictures are missing</td>
+<td>Only some files were pushed, or <code>.nojekyll</code> is missing</td>
+<td>In GitHub Desktop check that no files are left uncommitted; check that <code>docs/.nojekyll</code> exists and re-render</td>
+</tr>
+<tr class="odd">
+<td>An old version is displayed</td>
+<td>The browser cached it, or the push did not happen</td>
+<td>Press <em>Ctrl+F5</em>; check that GitHub Desktop says nothing is waiting to push</td>
+</tr>
+<tr class="even">
+<td>Your change is not there at all</td>
+<td>You edited but did not render, or rendered but did not commit</td>
+<td>Repeat render, commit, push, in that order</td>
+</tr>
+<tr class="odd">
+<td>A chapter you removed still shows up</td>
+<td>It was not cleared from <code>docs</code></td>
+<td>Use <strong>Render Website</strong> (the whole site), then commit and push again</td>
+</tr>
+<tr class="even">
+<td>A page works on the site but not in a link from your platform</td>
+<td>The link uses the wrong address</td>
+<td>Use the address shown in Pages settings, with <code>https://</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="fixing-mistakes" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="fixing-mistakes"><span class="header-section-number">9</span> Fixing mistakes</h2>
+<p>Publishing is not a one-way street. If you find an error, fix the text file, render, commit and push again; the corrected version replaces the old one. The repository keeps every earlier version too, so a change can be rolled back with help from someone technical.</p>
+<p>To take the course offline, ask your team. On GitHub, making the repository private or deleting it removes the site, and on GitLab the administrator can switch Pages off.</p>
+</section>
+<section id="public-means-public" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="public-means-public"><span class="header-section-number">10</span> Public means public</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Read this before the first push
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Everyone can read it.</strong> A public course is visible to the whole internet, including search engines.</li>
+<li><strong>Not just the finished pages: the source too.</strong> The repository contains your chapter files, drafts and images, and their whole history.</li>
+<li><strong>Deleting is not enough.</strong> If something confidential or personal is committed and you delete it a day later, it is still in the history. If this happens, tell your team at once and do not try to hide it yourself.</li>
+<li><strong>Quiz answers are readable</strong> by anyone who looks at the page source. Never put an exam behind these quizzes.</li>
+<li><strong>Never commit</strong> patient data, passwords, access tokens or unpublished results.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="your-course-is-live" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="your-course-is-live"><span class="header-section-number">11</span> Your course is live</h2>
+<p>That is the whole workflow: plan on paper, write in text files, render, check, commit, push. The first course takes the longest. The second takes a fraction of the time, because you now know where everything is. Copy this project again for your next one.</p>
+</section>
+<section id="check-your-understanding" class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="check-your-understanding"><span class="header-section-number">12</span> Check your understanding</h2>
+<div class="quiz-score">
+
+</div>
+<div class="question">
+<p>Which folder contains the finished website that gets published?</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><code>images</code></label></li>
+<li><label><input type="checkbox"><code>assets</code></label></li>
+<li><label><input type="checkbox" checked=""><code>docs</code></label></li>
+<li><label><input type="checkbox"><code>slides</code></label></li>
+</ul>
+<div class="feedback">
+<p>Render Website writes the finished course into <code>docs</code>. That folder is what GitHub Pages serves. You never edit it by hand.</p>
+</div>
+</div>
+<div class="question">
+<p>You have corrected a typo in a chapter, but the live site still shows the old text an hour later. What is the most likely reason?</p>
+<ul class="task-list">
+<li><label><input type="checkbox">GitHub is slow today</label></li>
+<li><label><input type="checkbox" checked="">You edited the file but did not render, commit and push</label></li>
+<li><label><input type="checkbox">The typo is cached in the file <code>.nojekyll</code></label></li>
+<li><label><input type="checkbox">The chapter is too long</label></li>
+</ul>
+<div class="feedback">
+<p>A change only reaches the live site after all three steps. The most common cause of “nothing happened” is one that was skipped. After a push, a few minutes’ wait and <em>Ctrl+F5</em> cover the rest.</p>
+</div>
+</div>
+<div class="question">
+<p>You accidentally committed a spreadsheet with patient names, then deleted it in the next commit. What should you do?</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Nothing; it is deleted now</label></li>
+<li><label><input type="checkbox">Delete the repository’s Pages setting</label></li>
+<li><label><input type="checkbox" checked="">Tell your team and your data-protection contact straight away</label></li>
+<li><label><input type="checkbox">Rename the spreadsheet</label></li>
+</ul>
+<div class="feedback">
+<p>The file is still in the repository’s history, and if the repository is public it may already have been seen or copied. It needs to be dealt with by people who can remove it properly, and quickly.</p>
+</div>
+</div>
+<p>The three steps of the routine are render, commit, and <span class="fitb" data-answer="push">?</span>.</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script>
+/* ---------------------------------------------------------------------------
+   Lightweight self-assessment engine for the course template.
+
+   Authors write plain markdown. Nothing here needs an R package or a server.
+
+   Multiple choice
+   ---------------
+   ::: {.question}
+   Question text goes here.
+
+   - [ ] a wrong option
+   - [x] the correct option
+   - [ ] another wrong option
+
+   ::: {.feedback}
+   Shown after the learner answers.
+   :::
+   :::
+
+   Fill in the blank
+   -----------------
+   A word or phrase (case and surrounding spaces are ignored; separate
+   alternative accepted answers with |):
+   The tool that turns text files into a website is [?]{.fitb answer="Quarto"} .
+   The file extension is [?]{.fitb answer="qmd|.qmd"} .
+
+   A number (accepted within tol, default 0.01; a decimal comma is fine):
+   A chapter should take about [?]{.fitb answer="15" tol="5"} minutes.
+--------------------------------------------------------------------------- */
+(function () {
+  "use strict";
+
+  function buildMultipleChoice(block, index) {
+    var list = block.querySelector("ul");
+    if (!list) return null;
+
+    var items = Array.prototype.slice.call(list.querySelectorAll(":scope > li"));
+    if (!items.length) return null;
+
+    var feedbackEl = block.querySelector(".feedback");
+    if (feedbackEl) feedbackEl.classList.add("feedback-hidden");
+
+    var options = items.map(function (li) {
+      var box = li.querySelector('input[type="checkbox"]');
+      var correct = !!(box && box.checked);
+      if (box) box.remove();
+      // Quarto wraps task-list text in its own <label>; unwrap it, because the
+      // option row is itself a <label> and labels must not be nested.
+      var inner = li.querySelector(":scope > label");
+      return { html: (inner ? inner.innerHTML : li.innerHTML).trim(), correct: correct };
+    });
+
+    if (!options.some(function (o) { return o.correct; })) return null;
+
+    var name = "q" + index + "-" + Math.random().toString(36).slice(2, 7);
+    var wrap = document.createElement("div");
+    wrap.className = "quiz-options";
+
+    options.forEach(function (opt, i) {
+      var id = name + "-" + i;
+      var row = document.createElement("label");
+      row.className = "quiz-option";
+      row.setAttribute("for", id);
+
+      var input = document.createElement("input");
+      input.type = "radio";
+      input.name = name;
+      input.id = id;
+      input.value = String(i);
+
+      var text = document.createElement("span");
+      text.className = "quiz-option-text";
+      text.innerHTML = opt.html;
+
+      var mark = document.createElement("span");
+      mark.className = "quiz-mark";
+      mark.setAttribute("aria-hidden", "true");
+
+      row.appendChild(input);
+      row.appendChild(text);
+      row.appendChild(mark);
+      wrap.appendChild(row);
+    });
+
+    list.replaceWith(wrap);
+
+    var controls = document.createElement("div");
+    controls.className = "quiz-controls";
+
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "quiz-check";
+    button.textContent = "Check answer";
+
+    var verdict = document.createElement("span");
+    verdict.className = "quiz-verdict";
+    verdict.setAttribute("role", "status");
+
+    controls.appendChild(button);
+    controls.appendChild(verdict);
+
+    if (feedbackEl) block.insertBefore(controls, feedbackEl);
+    else block.appendChild(controls);
+
+    var answered = false;
+
+    button.addEventListener("click", function () {
+      var picked = wrap.querySelector("input:checked");
+      if (!picked) {
+        verdict.textContent = "Choose an option first.";
+        verdict.className = "quiz-verdict quiz-neutral";
+        return;
+      }
+
+      var chosen = parseInt(picked.value, 10);
+      var isRight = options[chosen].correct;
+
+      Array.prototype.forEach.call(wrap.children, function (row, i) {
+        row.classList.remove("is-correct", "is-wrong");
+        if (options[i].correct) row.classList.add("is-correct");
+        else if (i === chosen) row.classList.add("is-wrong");
+        row.querySelector("input").disabled = true;
+      });
+
+      verdict.textContent = isRight ? "Correct" : "Not correct";
+      verdict.className = "quiz-verdict " + (isRight ? "quiz-right" : "quiz-wrong");
+      button.disabled = true;
+      if (feedbackEl) feedbackEl.classList.remove("feedback-hidden");
+
+      if (!answered) {
+        answered = true;
+        block.dispatchEvent(new CustomEvent("quiz:answered", {
+          bubbles: true,
+          detail: { correct: isRight }
+        }));
+      }
+    });
+
+    return block;
+  }
+
+  function buildFillIn(span) {
+    // Quarto rewrites custom attributes on spans to data-*, so accept either.
+    function attr(name) {
+      return span.getAttribute(name) || span.getAttribute("data-" + name);
+    }
+    var raw = attr("answer");
+    if (raw === null || raw.trim() === "") return;
+
+    // A single value that parses fully as a number is graded numerically;
+    // anything else is graded as text against the |-separated alternatives.
+    var numeric = raw.trim() !== "" && isFinite(Number(raw.trim().replace(",", ".")));
+    var expected = numeric ? Number(raw.trim().replace(",", ".")) : NaN;
+    var accepted = raw.split("|").map(function (a) { return a.trim().toLowerCase(); });
+    var tol = parseFloat(attr("tol"));
+    if (isNaN(tol)) tol = 0.01;
+
+    var holder = document.createElement("span");
+    holder.className = "quiz-fitb";
+
+    var input = document.createElement("input");
+    input.type = "text";
+    if (numeric) input.inputMode = "decimal";
+    input.setAttribute("aria-label", "Your answer");
+    input.size = numeric ? 7 : Math.max(8, Math.max.apply(null, accepted.map(function (a) { return a.length; })) + 2);
+
+    var mark = document.createElement("span");
+    mark.className = "quiz-fitb-mark";
+    mark.setAttribute("aria-hidden", "true");
+
+    function grade() {
+      var typed = input.value.trim();
+      if (typed === "") {
+        holder.className = "quiz-fitb";
+        mark.textContent = "";
+        return;
+      }
+      var ok;
+      if (numeric) {
+        var given = Number(typed.replace(",", "."));
+        ok = isFinite(given) && Math.abs(given - expected) <= tol;
+      } else {
+        ok = accepted.indexOf(typed.toLowerCase()) !== -1;
+      }
+      holder.className = "quiz-fitb " + (ok ? "is-correct" : "is-wrong");
+      mark.textContent = ok ? "✓" : "✗";
+      input.setAttribute("aria-invalid", ok ? "false" : "true");
+    }
+
+    input.addEventListener("change", grade);
+    input.addEventListener("blur", grade);
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") { e.preventDefault(); grade(); }
+    });
+
+    holder.appendChild(input);
+    holder.appendChild(mark);
+    span.replaceWith(holder);
+  }
+
+  function attachScoreboard(board, questions) {
+    var total = questions.length;
+    var answered = 0;
+    var right = 0;
+
+    function paint() {
+      board.innerHTML =
+        '<span class="score-count">' + right + " / " + total + "</span>" +
+        '<span class="score-label">' +
+        (answered === 0
+          ? "questions correct — nothing answered yet"
+          : answered < total
+            ? "correct, " + (total - answered) + " still to go"
+            : "correct. All questions answered.") +
+        "</span>";
+    }
+
+    document.addEventListener("quiz:answered", function (e) {
+      answered += 1;
+      if (e.detail.correct) right += 1;
+      paint();
+    });
+
+    paint();
+  }
+
+  function init() {
+    var blocks = document.querySelectorAll("div.question");
+    var live = [];
+    Array.prototype.forEach.call(blocks, function (b, i) {
+      var made = buildMultipleChoice(b, i);
+      if (made) live.push(made);
+    });
+
+    Array.prototype.forEach.call(
+      document.querySelectorAll("span.fitb"),
+      buildFillIn
+    );
+
+    var board = document.querySelector(".quiz-score");
+    if (board && live.length) attachScoreboard(board, live);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/example\.org\/course-template");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./07-check-before-release.html" class="pagination-link" aria-label="Check Before Release">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Check Before Release</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./glossary.html" class="pagination-link" aria-label="Glossary">
+        <span class="nav-page-text">Glossary</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Course Template · Universitätsmedizin Göttingen</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

@@ -1,0 +1,1031 @@
+[
+  {
+    "objectID": "slides/lecture-01.html#why-a-template",
+    "href": "slides/lecture-01.html#why-a-template",
+    "title": "Building a Course",
+    "section": "Why a template?",
+    "text": "Why a template?\nBuilding an online course should be about your subject, not about web design.\n\nThe template gives you:\n\nChapters, navigation and search\nQuizzes with instant feedback\nThe university’s corporate design, already applied"
+  },
+  {
+    "objectID": "slides/lecture-01.html#the-whole-workflow",
+    "href": "slides/lecture-01.html#the-whole-workflow",
+    "title": "Building a Course",
+    "section": "The whole workflow",
+    "text": "The whole workflow\n\nPlan on paper: outcomes first\nWrite each chapter as a text file\nRender with one click in RStudio\nCheck with the checklist\nPublish on GitHub or GitLab Pages\n\n\nMention that steps 2 to 4 repeat many times. Publishing is the routine render, commit, push."
+  },
+  {
+    "objectID": "slides/lecture-01.html#plan-from-the-outcome",
+    "href": "slides/lecture-01.html#plan-from-the-outcome",
+    "title": "Building a Course",
+    "section": "Plan from the outcome",
+    "text": "Plan from the outcome\n\n\nNot this\n“Understand hand hygiene”\n\nThis\n“List the five moments for hand disinfection”"
+  },
+  {
+    "objectID": "slides/lecture-01.html#one-chapter-one-rhythm",
+    "href": "slides/lecture-01.html#one-chapter-one-rhythm",
+    "title": "Building a Course",
+    "section": "One chapter, one rhythm",
+    "text": "One chapter, one rhythm\n\nObjectives\nShort sections, each with its own heading\nOne key point\nTwo to four questions\n\n\nQuestions are part of the teaching, not an extra."
+  },
+  {
+    "objectID": "slides/lecture-01.html#write",
+    "href": "slides/lecture-01.html#write",
+    "title": "Building a Course",
+    "section": "Write",
+    "text": "Write\nPlain text with a few symbols, or the Visual editor in RStudio.\n\nYou edit the text files. You never edit the website."
+  },
+  {
+    "objectID": "slides/lecture-01.html#publish",
+    "href": "slides/lecture-01.html#publish",
+    "title": "Building a Course",
+    "section": "Publish",
+    "text": "Publish\nRender, commit, push.\nThree steps, every time."
+  },
+  {
+    "objectID": "slides/lecture-01.html#where-to-start",
+    "href": "slides/lecture-01.html#where-to-start",
+    "title": "Building a Course",
+    "section": "Where to start",
+    "text": "Where to start\nOpen the course, Chapter 1, and follow it once from the beginning."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Building a Course with This Template",
+    "section": "",
+    "text": "You know your subject and you want to teach it online. What you do not want is to learn web design, or to argue with a learning platform’s editor about where a picture goes.\nThis template turns plain text files into a complete course website: chapters with a sidebar, search, self-check quizzes, lecture slides, a dark mode, and a layout that works on a phone. Colours, typeface and logo placement already follow the Universitätsmedizin Göttingen corporate design, so nobody has to decide them again.\nThis course is built with the template it teaches. Every feature you read about is in use on the page in front of you, and the files behind these pages are the worked examples. When a chapter says “see how it is done”, open the matching .qmd file and look.\nflowchart LR\n    A[\"Step 1&lt;br/&gt;Write chapters&lt;br/&gt;as text files\"] --&gt; B[\"Step 2&lt;br/&gt;Render with one&lt;br/&gt;click in RStudio\"]\n    B --&gt; C[\"Step 3&lt;br/&gt;Check the pages&lt;br/&gt;in the docs folder\"]\n    C --&gt; D[\"Step 4&lt;br/&gt;Publish on GitHub&lt;br/&gt;or GitLab Pages\"]\n\n    classDef mine fill:#203151,stroke:#203151,stroke-width:1.5px,color:#ffffff\n    classDef theirs fill:#f1a400,stroke:#f1a400,stroke-width:1.5px,color:#000000\n    class A,B,C mine\n    class D theirs\n\n\n\n\nFigure 1: The workflow of this course. You repeat the first three steps as often as you like; publishing is a routine of three clicks.",
+    "crumbs": [
+      "Course",
+      "Building a Course with This Template"
+    ]
+  },
+  {
+    "objectID": "index.html#how-this-course-works",
+    "href": "index.html#how-this-course-works",
+    "title": "Building a Course with This Template",
+    "section": "How this course works",
+    "text": "How this course works\nThere are eight short chapters, in four groups. Each has the same shape: objectives at the top, explanation with examples, and questions at the end. Plan on about three to four hours in total, and take them in order the first time. You can stop after any chapter and come back.\n\n\n\n\n\n\nflowchart LR\n    subgraph G1[\"Get going\"]\n        A[\"1 Set up&lt;br/&gt;and first render\"] --&gt; B[\"2 Plan and&lt;br/&gt;structure\"]\n    end\n    subgraph G2[\"Write\"]\n        C[\"3 Write&lt;br/&gt;text\"] --&gt; D[\"4 Images, tables,&lt;br/&gt;references\"] --&gt; E[\"5 Quizzes\"]\n    end\n    subgraph G3[\"Slides and release\"]\n        F[\"6 Slides\"] --&gt; G[\"7 Check before&lt;br/&gt;release\"] --&gt; H[\"8 Publish\"]\n    end\n    B --&gt; C\n    E --&gt; F\n\n    classDef basics fill:#ffffff,stroke:#134a84,stroke-width:2px,color:#000000\n    classDef writing fill:#134a84,stroke:#134a84,stroke-width:2px,color:#ffffff\n    classDef finish fill:#f1a400,stroke:#f1a400,stroke-width:2px,color:#000000\n    class A,B basics\n    class C,D,E writing\n    class F,G,H finish\n\n\n\n\nFigure 2: Route through the material. Take the chapters in order the first time.\n\n\n\n\n\nIf you are in a hurry: Chapter 1 gets you a running project, Chapter 7 is the checklist, and Chapter 8 gets the course online. Everything in between is what makes the course good.",
+    "crumbs": [
+      "Course",
+      "Building a Course with This Template"
+    ]
+  },
+  {
+    "objectID": "index.html#try-it-now",
+    "href": "index.html#try-it-now",
+    "title": "Building a Course with This Template",
+    "section": "Try it now",
+    "text": "Try it now\nEvery chapter ends with questions like this one. Choose an answer and press Check answer; the page tells you whether you were right and why. Nothing is recorded anywhere, so guessing costs you nothing.\n\nIn this template, what does one chapter correspond to?\n\nOne line in the navigation file\nOne .qmd text file\nOne folder of images\nOne page in the Word document you started from\n\n\nEach chapter is a single .qmd file: plain text with a small amount of markup. The navigation file only lists the chapters and puts them in order. Chapter 2 covers how the two fit together.\n\n\nSome questions ask for a word instead. The tool that turns the text files into a website is called ? (type it in and click elsewhere).",
+    "crumbs": [
+      "Course",
+      "Building a Course with This Template"
+    ]
+  },
+  {
+    "objectID": "index.html#before-you-start",
+    "href": "index.html#before-you-start",
+    "title": "Building a Course with This Template",
+    "section": "Before you start",
+    "text": "Before you start\n\n\n\n\n\n\nWhat you need\n\n\n\nR and RStudio, both free. RStudio includes Quarto, the tool that builds the website, so there is nothing else to install. You will not write or run any R code: R is simply what RStudio runs on. A modern web browser is all a reader needs.\n\n\n\n\n\n\n\n\nUsing this as your starting point\n\n\n\nChapter 1 explains exactly how to copy this project and turn it into your own course. In short: duplicate the folder, replace the chapters, change a handful of lines in one settings file.",
+    "crumbs": [
+      "Course",
+      "Building a Course with This Template"
+    ]
+  },
+  {
+    "objectID": "08-publish.html",
+    "href": "08-publish.html",
+    "title": "Publish on GitHub or GitLab Pages",
+    "section": "",
+    "text": "In this chapter\n\nExplain what publishing means here, and what only has to be done once\nPrepare the project for publishing\nPut the course online and update it later\nCheck the published course, and fix what went wrong\nKnow what “public” means before you press the button",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Publish on GitHub or GitLab Pages"
+    ]
+  },
+  {
+    "objectID": "08-publish.html#what-publishing-means",
+    "href": "08-publish.html#what-publishing-means",
+    "title": "Publish on GitHub or GitLab Pages",
+    "section": "1 What publishing means",
+    "text": "1 What publishing means\nWhen you press Render Website, RStudio builds the course into a folder called docs. That folder is a complete website. Publishing means copying that folder to a place on the internet that shows it as a web page.\nGitHub and GitLab are websites where projects are stored online. Both can also show the website files they hold to the public: this feature is called Pages, and the result is an ordinary web address. Your course is a set of files; the platform hands them to whoever asks.\nThree words you will meet:\n\nRepository: your project folder, stored online together with its history.\nCommit: saving a labelled snapshot of your changes. You give it a short message, such as “Update chapter 3”.\nPush: sending your saved snapshots from your computer to the online repository.\n\n\nKey point\nThe routine every time is three steps: render, commit, push. The rest of this chapter is a one-off setup, and it is fine, even normal, to have someone from your team do that part with you.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Publish on GitHub or GitLab Pages"
+    ]
+  },
+  {
+    "objectID": "08-publish.html#who-does-what",
+    "href": "08-publish.html#who-does-what",
+    "title": "Publish on GitHub or GitLab Pages",
+    "section": "2 Who does what",
+    "text": "2 Who does what\n\n\n\nTable 1: The one-off setup and the routine\n\n\n\n\n\n\n\n\n\n\n\n\nWhat\nHow often\nWho\n\n\n\n\nA\nCreate the online repository, connect it to your computer, switch on Pages\nOnce per course\nYou with help, or your team\n\n\nB\nRender, commit, push\nEvery release\nYou\n\n\n\n\n\n\nIf your team has already set up the repository and Pages for you, skip to the routine.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Publish on GitHub or GitLab Pages"
+    ]
+  },
+  {
+    "objectID": "08-publish.html#github-or-gitlab",
+    "href": "08-publish.html#github-or-gitlab",
+    "title": "Publish on GitHub or GitLab Pages",
+    "section": "3 GitHub or GitLab?",
+    "text": "3 GitHub or GitLab?\nYour institution decides; you do not need to choose. Both do the job.\n\n\n\nTable 2: GitHub and GitLab Pages compared\n\n\n\n\n\n\n\n\n\n\n\nGitHub\nGitLab\n\n\n\n\nAddress of the course\nhttps://&lt;account&gt;.github.io/&lt;repository&gt;/\nDepends on the installation, for example https://&lt;group&gt;.pages.&lt;institution&gt;/&lt;project&gt;/\n\n\nWho can read it\nAnyone, on the free plan\nAnyone, or only members of the project, if the installation allows\n\n\nSetup\nA settings page, no extra files\nNeeds a small automation file; see below\n\n\n\n\n\n\nIf your course must not be public (for example, only for enrolled students), do not use a free public GitHub repository. Ask your team about the options on your institution’s GitLab, or about linking the course from the learning platform behind a login.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Publish on GitHub or GitLab Pages"
+    ]
+  },
+  {
+    "objectID": "08-publish.html#before-you-publish",
+    "href": "08-publish.html#before-you-publish",
+    "title": "Publish on GitHub or GitLab Pages",
+    "section": "4 Before you publish",
+    "text": "4 Before you publish\n\nFinish Chapter 7: the checklist.\nIn _quarto.yml, set site-url to the address the course will have (from the table above). If you do not know it yet, publish once, read the address off the Pages settings, and then correct it.\nClick Render Website one last time.\n\nThe project contains an empty file named .nojekyll. Leave it alone; it tells GitHub to serve your files exactly as they are. It starts with a dot, so your computer may hide it. That is fine.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Publish on GitHub or GitLab Pages"
+    ]
+  },
+  {
+    "objectID": "08-publish.html#one-off-setup",
+    "href": "08-publish.html#one-off-setup",
+    "title": "Publish on GitHub or GitLab Pages",
+    "section": "5 One-off setup",
+    "text": "5 One-off setup\n\nStep A1: an online repository\n\nGitHubGitLab\n\n\nThe simplest route for a beginner is the free program GitHub Desktop.\n\nCreate an account at github.com if you do not have one. Install GitHub Desktop from desktop.github.com and sign in.\nIn GitHub Desktop, choose File → Add local repository… and pick your project folder. If it says that the folder is not a repository yet, click the link offering to create one.\nClick Publish repository. Give it a name in lowercase with hyphens. For free Pages the repository has to be public, so untick “Keep this code private”. Click Publish.\n\n\n\nGitLab installations differ (most institutions log in with the university account), and there is no official desktop program. Ask your team to create the project and to connect it to RStudio with you. Once that is done, RStudio’s Git tab (in the upper-right panel) does everything in the routine below.\n\n\n\n\n\nStep A2: switch on Pages\n\nGitHubGitLab\n\n\n\nOpen the repository on github.com and click Settings.\nIn the left menu, click Pages.\nUnder Build and deployment, set Source to Deploy from a branch.\nUnder Branch, choose main and, in the folder drop-down next to it, /docs. Click Save.\nWait a minute or two and reload the page. The address of your course appears at the top.\n\n\n\nGitLab shows Pages through a small automation file in the project, called .gitlab-ci.yml. It differs between installations, so the template does not include one. Ask whoever administers your GitLab; they will know the standard one for your institution and can add it in a few minutes. Afterwards you never touch it.\n\n\n\n\n\n\nFor the person who sets it up\n\n\n\n\n\nA minimal file that publishes the already-built docs folder, as a starting point; adapt it to your installation’s runners and rules:\npages:\n  stage: deploy\n  script:\n    - mkdir -p public\n    - cp -r docs/. public/\n  artifacts:\n    paths:\n      - public\n  rules:\n    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH\nIt does not build the course. The author builds it in RStudio and commits the docs folder.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Publish on GitHub or GitLab Pages"
+    ]
+  },
+  {
+    "objectID": "08-publish.html#the-routine-render-commit-push",
+    "href": "08-publish.html#the-routine-render-commit-push",
+    "title": "Publish on GitHub or GitLab Pages",
+    "section": "6 The routine: render, commit, push",
+    "text": "6 The routine: render, commit, push\nEvery time you want to release a new version:\n\nRender. In RStudio, click Render Website and wait for it to finish without errors.\nCommit and push. Save a snapshot and send it online. Steps below.\nWait, then look. It takes from a few seconds to a few minutes for the change to appear. Then open your course address and press Ctrl+F5 so the browser fetches the newest version.\n\nCommitting and pushing, in detail:\n\nGitHub DesktopRStudio Git tab\n\n\nOpen GitHub Desktop. The left panel lists the changed files. There are usually many, because the whole website is rebuilt; that is normal. In the box at the bottom left, type a short summary such as Update chapter 3, and click Commit to main. Then click Push origin at the top.\n\n\nOpen the Git tab. Click one file, press Ctrl+A to select all, and click Stage. Click Commit, type a message, and click Commit again. Then click the green Push arrow.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Publish on GitHub or GitLab Pages"
+    ]
+  },
+  {
+    "objectID": "08-publish.html#check-the-published-course",
+    "href": "08-publish.html#check-the-published-course",
+    "title": "Publish on GitHub or GitLab Pages",
+    "section": "7 Check the published course",
+    "text": "7 Check the published course\nOpen the live address and try it like a learner would:\n\nThe navigation, sidebar and logo appear, and the colours are right.\nPictures load, and a diagram is drawn.\nA quiz question works when you click Check answer.\nSearch finds a word from a chapter.\nThe Slides link in the top menu opens the slides.\nIt looks right on your phone.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Publish on GitHub or GitLab Pages"
+    ]
+  },
+  {
+    "objectID": "08-publish.html#when-something-goes-wrong",
+    "href": "08-publish.html#when-something-goes-wrong",
+    "title": "Publish on GitHub or GitLab Pages",
+    "section": "8 When something goes wrong",
+    "text": "8 When something goes wrong\n\n\n\nTable 3: Publishing problems and their usual fixes\n\n\n\n\n\n\n\n\n\n\nWhat you see\nLikely cause\nWhat to do\n\n\n\n\n“404” or “Site not found” on the address\nPages is not switched on yet, or points at the wrong folder\nCheck Settings → Pages: branch main, folder /docs. Wait a few minutes after saving\n\n\nThe page shows but with no styling, or pictures are missing\nOnly some files were pushed, or .nojekyll is missing\nIn GitHub Desktop check that no files are left uncommitted; check that docs/.nojekyll exists and re-render\n\n\nAn old version is displayed\nThe browser cached it, or the push did not happen\nPress Ctrl+F5; check that GitHub Desktop says nothing is waiting to push\n\n\nYour change is not there at all\nYou edited but did not render, or rendered but did not commit\nRepeat render, commit, push, in that order\n\n\nA chapter you removed still shows up\nIt was not cleared from docs\nUse Render Website (the whole site), then commit and push again\n\n\nA page works on the site but not in a link from your platform\nThe link uses the wrong address\nUse the address shown in Pages settings, with https://",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Publish on GitHub or GitLab Pages"
+    ]
+  },
+  {
+    "objectID": "08-publish.html#fixing-mistakes",
+    "href": "08-publish.html#fixing-mistakes",
+    "title": "Publish on GitHub or GitLab Pages",
+    "section": "9 Fixing mistakes",
+    "text": "9 Fixing mistakes\nPublishing is not a one-way street. If you find an error, fix the text file, render, commit and push again; the corrected version replaces the old one. The repository keeps every earlier version too, so a change can be rolled back with help from someone technical.\nTo take the course offline, ask your team. On GitHub, making the repository private or deleting it removes the site, and on GitLab the administrator can switch Pages off.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Publish on GitHub or GitLab Pages"
+    ]
+  },
+  {
+    "objectID": "08-publish.html#public-means-public",
+    "href": "08-publish.html#public-means-public",
+    "title": "Publish on GitHub or GitLab Pages",
+    "section": "10 Public means public",
+    "text": "10 Public means public\n\n\n\n\n\n\nRead this before the first push\n\n\n\n\nEveryone can read it. A public course is visible to the whole internet, including search engines.\nNot just the finished pages: the source too. The repository contains your chapter files, drafts and images, and their whole history.\nDeleting is not enough. If something confidential or personal is committed and you delete it a day later, it is still in the history. If this happens, tell your team at once and do not try to hide it yourself.\nQuiz answers are readable by anyone who looks at the page source. Never put an exam behind these quizzes.\nNever commit patient data, passwords, access tokens or unpublished results.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Publish on GitHub or GitLab Pages"
+    ]
+  },
+  {
+    "objectID": "08-publish.html#your-course-is-live",
+    "href": "08-publish.html#your-course-is-live",
+    "title": "Publish on GitHub or GitLab Pages",
+    "section": "11 Your course is live",
+    "text": "11 Your course is live\nThat is the whole workflow: plan on paper, write in text files, render, check, commit, push. The first course takes the longest. The second takes a fraction of the time, because you now know where everything is. Copy this project again for your next one.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Publish on GitHub or GitLab Pages"
+    ]
+  },
+  {
+    "objectID": "08-publish.html#check-your-understanding",
+    "href": "08-publish.html#check-your-understanding",
+    "title": "Publish on GitHub or GitLab Pages",
+    "section": "12 Check your understanding",
+    "text": "12 Check your understanding\n\n\n\n\nWhich folder contains the finished website that gets published?\n\nimages\nassets\ndocs\nslides\n\n\nRender Website writes the finished course into docs. That folder is what GitHub Pages serves. You never edit it by hand.\n\n\n\nYou have corrected a typo in a chapter, but the live site still shows the old text an hour later. What is the most likely reason?\n\nGitHub is slow today\nYou edited the file but did not render, commit and push\nThe typo is cached in the file .nojekyll\nThe chapter is too long\n\n\nA change only reaches the live site after all three steps. The most common cause of “nothing happened” is one that was skipped. After a push, a few minutes’ wait and Ctrl+F5 cover the rest.\n\n\n\nYou accidentally committed a spreadsheet with patient names, then deleted it in the next commit. What should you do?\n\nNothing; it is deleted now\nDelete the repository’s Pages setting\nTell your team and your data-protection contact straight away\nRename the spreadsheet\n\n\nThe file is still in the repository’s history, and if the repository is public it may already have been seen or copied. It needs to be dealt with by people who can remove it properly, and quickly.\n\n\nThe three steps of the routine are render, commit, and ?.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Publish on GitHub or GitLab Pages"
+    ]
+  },
+  {
+    "objectID": "06-slides.html",
+    "href": "06-slides.html",
+    "title": "Slides",
+    "section": "",
+    "text": "In this chapter\n\nDecide whether a course needs slides at all\nOpen, edit and preview the slide deck that comes with the template\nStructure slides, add speaker notes and reveal content step by step\nCreate a second deck, and link to it\nExport slides as a PDF",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "06-slides.html#do-you-need-slides",
+    "href": "06-slides.html#do-you-need-slides",
+    "title": "Slides",
+    "section": "1 Do you need slides?",
+    "text": "1 Do you need slides?\nNot every course does. The chapters are meant to be read on their own. Slides are for a different situation: you presenting live, in a lecture or a webinar, where learners need something to look at while you talk.\nIf you would only be copying the chapter text onto slides, skip them.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "06-slides.html#the-deck-that-comes-with-the-template",
+    "href": "06-slides.html#the-deck-that-comes-with-the-template",
+    "title": "Slides",
+    "section": "2 The deck that comes with the template",
+    "text": "2 The deck that comes with the template\nOpen slides/lecture-01.qmd. It is a text file like a chapter, and it turns into a full-screen presentation. It has the university’s logo top right and the blue rule under each slide title, so it matches the course.\nTo see it, render the website as usual and click Slides in the top menu. The deck opens in a new tab, and a click anywhere then the arrow keys move through it.\n\n\n\n\n\n\nUseful keys while presenting\n\n\n\nArrow keys move between slides, F goes full-screen, S opens the speaker view with your notes and a timer, O shows an overview of all slides, and Esc leaves the overview.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "06-slides.html#structure",
+    "href": "06-slides.html#structure",
+    "title": "Slides",
+    "section": "3 Structure",
+    "text": "3 Structure\nThe top of the file, between the two lines of dashes, has the title and settings. Leave the settings as they are and change only title, subtitle and author. Below it, every ## heading starts a new slide:\n## The problem\n\nLearners forget most of what they hear once.\n\n## Our approach\n\n- Explain briefly\n- Let them try\n- Ask a question\nCompare with a chapter: the same headings and lists, only shorter. A slide should hold one idea and no more than about six lines.\n\nReveal step by step\nTo show content one piece at a time, put a line containing . . . (three dots separated by spaces) where the pause should be:\n## Question\n\nWhat is the first step?\n\n. . .\n\n**Render the website.**\n\n\nSpeaker notes\nNotes are visible to you only, in the speaker view (S):\n## Our approach\n\n- Explain briefly\n- Let them try\n\n::: {.notes}\nMention the example from last week here. Two minutes.\n:::\n\n\nTwo columns, images, emphasis\n:::: {.columns}\n::: {.column width=\"50%\"}\nText on the left.\n:::\n::: {.column width=\"50%\"}\n![Caption](../images/placeholder.svg)\n:::\n::::\nNotice the ../ before images. The slides live one folder deeper than the chapters, so they have to step up out of it to find the pictures.\nTwo coloured boxes are ready-made for emphasis: ::: {.callout-blue} (white text on blue) and ::: {.callout-yellow} (black text on yellow), both used as a normal block with a closing :::. Use them sparingly.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "06-slides.html#slides-that-work",
+    "href": "06-slides.html#slides-that-work",
+    "title": "Slides",
+    "section": "4 Slides that work",
+    "text": "4 Slides that work\n\nOne idea per slide. If you need “and” in the heading, make two slides.\nFew words, large. If it cannot be read from the back of the room, cut it.\nDo not read the slide aloud. Put the detail in the chapter and the point on the slide.\nUse pictures for what a picture shows better than words, with alt text as in Chapter 4.\nEnd with what to do, not with “Thank you” or “Questions?”.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "06-slides.html#a-second-deck",
+    "href": "06-slides.html#a-second-deck",
+    "title": "Slides",
+    "section": "5 A second deck",
+    "text": "5 A second deck\n\nIn the Files panel, open the slides folder. Copy lecture-01.qmd and name the copy lecture-02.qmd.\nChange its title and slides, and render the website.\nLink to it from where learners will look for it: from a chapter with [Lecture 2](slides/lecture-02.qmd), or (from within the slides folder itself) simply lecture-02.qmd. You can also add it to the top menu in _quarto.yml, under navbar:, in the same way as the existing Slides entry.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "06-slides.html#a-pdf-for-handouts",
+    "href": "06-slides.html#a-pdf-for-handouts",
+    "title": "Slides",
+    "section": "6 A PDF for handouts",
+    "text": "6 A PDF for handouts\nOpen the slides in the browser and add ?print-pdf to the end of the address, so it ends in lecture-01.html?print-pdf. Press Enter, then use the browser’s print function and choose Save as PDF. In the print dialog, set Margins to None and tick Background graphics. The PDF then keeps the colours and the logo.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "06-slides.html#check-your-understanding",
+    "href": "06-slides.html#check-your-understanding",
+    "title": "Slides",
+    "section": "7 Check your understanding",
+    "text": "7 Check your understanding\n\n\n\n\nWhat starts a new slide?\n\nA blank line\nA line with three dashes only\nA ## heading\nThe words “Next slide”\n\n\nEvery second-level heading starts a new slide, exactly as it starts a new section in a chapter.\n\n\n\nA slide has ten bullet points in small print. What is the best repair?\n\nReduce the font size further\nSplit it into several slides with one idea each, and move the detail into the chapter\nPut the bullets into a table\nMake the text yellow\n\n\nA slide supports the speaker; it is not a document. Cut it down and let the chapter carry the detail.\n\n\n\nYou want a picture on a slide. The file is images/diagram.png in the project. What is the link in the slide file?\n\nimages/diagram.png\n../images/diagram.png\n/images/diagram.png\ndiagram.png\n\n\nThe slide files live in the slides folder, one level below the project’s main folder, so they must step up with ../ to reach the images.\n\n\nTo show a slide’s content one piece at a time, you put a line with the characters ? at the point of the pause. (Type them with spaces.)",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "04-media-tables-references.html",
+    "href": "04-media-tables-references.html",
+    "title": "Images, Tables, Diagrams and References",
+    "section": "",
+    "text": "In this chapter\n\nAdd an image with a caption and a text alternative, and refer to it in the text\nBuild a table and keep it readable\nDraw a simple diagram without a drawing program\nEmbed a video responsibly\nCite a source and get the reference list for free",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Images, Tables, Diagrams and References"
+    ]
+  },
+  {
+    "objectID": "04-media-tables-references.html#images",
+    "href": "04-media-tables-references.html#images",
+    "title": "Images, Tables, Diagrams and References",
+    "section": "1 Images",
+    "text": "1 Images\nPut every image file in the images/ folder. Then insert it in one of two ways.\n\nVisual mode: Insert → Figure / Image…, pick the file, type a caption and the Alt text, and confirm.\nSource mode:\n\n![A short caption under the picture](images/placeholder.svg){#fig-demo fig-alt=\"A dark blue placeholder picture with the words: Your picture goes here.\"}\nHere is the result. Click the picture: it opens enlarged, which helps with screenshots and detailed diagrams.\n\n\n\n\n\n\nFigure 1: A short caption under the picture\n\n\n\n\nAlt text is not optional\nThe alt text is a description of the picture for people who cannot see it: blind and low-vision learners using a screen reader, and anyone whose image has not loaded. In the EU, accessibility is also a legal requirement for most public-sector websites. Write what the picture shows and why it is there, in a sentence or two: “Screenshot of the Build tab with the Render Website button highlighted”, not “screenshot” or “image1”.\nThe caption and the alt text do different jobs. The caption is for everybody and says what to notice. The alt text stands in for the picture.\n\n\nReferring to a picture\nNotice the {#fig-demo} in the source above. That label lets you point to the figure by number from anywhere in the chapter: typing @fig-demo produces Figure 1. The number updates itself if you add a figure before it. Labels for figures must start with fig-, and for tables with tbl-.\n\n\nChoosing and preparing images\n\n\n\nTable 1: Which file type to use\n\n\n\n\n\nSituation\nBest format\n\n\n\n\nScreenshot, diagram, chart\nPNG, or SVG for drawings\n\n\nPhotograph\nJPG\n\n\nLogo or line drawing you can scale\nSVG\n\n\n\n\n\n\n\nKeep files small. A photo straight from a phone can be many megabytes and makes the course slow to load. Scale it down (a width of about 1600 pixels is plenty) before adding it.\nDo not put text in images. It cannot be searched, resized or read aloud. Put the text in the page and use the image for what only an image can show.\nUse only images you have the right to use. Pictures found online are usually copyrighted. Use your own, the university’s, or material with a clear licence, and credit the source in the caption.\nNever publish anything that identifies a patient unless you hold explicit consent and your institution has approved it. Remember that the finished course will be public (Chapter 8).",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Images, Tables, Diagrams and References"
+    ]
+  },
+  {
+    "objectID": "04-media-tables-references.html#tables",
+    "href": "04-media-tables-references.html#tables",
+    "title": "Images, Tables, Diagrams and References",
+    "section": "2 Tables",
+    "text": "2 Tables\nA table shows a comparison, or a list of items each with the same properties. In Visual mode use Insert → Table and type into the cells. In Source mode a table is drawn with vertical bars:\n| Tool | Used for | Cost |\n|---|---|---|\n| RStudio | Writing and building the course | Free |\n| GitHub | Publishing the course | Free for public courses |\n: The tools in this course {#tbl-tools}\nThe line starting with a colon is the caption, and the label works like a figure’s label: @tbl-tools gives Table 2.\n\n\n\nTable 2: The tools in this course\n\n\n\n\n\nTool\nUsed for\nCost\n\n\n\n\nRStudio\nWriting and building the course\nFree\n\n\nGitHub\nPublishing the course\nFree for public courses\n\n\n\n\n\n\nKeep tables small (rarely more than five columns) and never use a table just to arrange things on the page. If a table gets wide, it usually wants to be two tables, or a list.",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Images, Tables, Diagrams and References"
+    ]
+  },
+  {
+    "objectID": "04-media-tables-references.html#diagrams-without-a-drawing-program",
+    "href": "04-media-tables-references.html#diagrams-without-a-drawing-program",
+    "title": "Images, Tables, Diagrams and References",
+    "section": "3 Diagrams without a drawing program",
+    "text": "3 Diagrams without a drawing program\nFor processes and relationships, you can describe the diagram in text and let the website draw it. This is called Mermaid. It is ideal for flow charts, and diagrams stay editable: to change a box, change a word.\nType a block like this:\n```{mermaid}\n%%| label: fig-flow\n%%| fig-cap: \"The working rhythm\"\n%%| fig-alt: \"Three boxes in a row: Edit, Render, Check. An arrow leads from each to the next, and from Check back to Edit.\"\nflowchart LR\n    A[\"Edit\"] --&gt; B[\"Render\"]\n    B --&gt; C[\"Check\"]\n    C --&gt; A\n```\nEach box is letter[\"Label\"], and --&gt; draws an arrow between two of them. The result:\n\n\n\n\n\n\nflowchart LR\n    A[\"Edit\"] --&gt; B[\"Render\"]\n    B --&gt; C[\"Check\"]\n    C --&gt; A\n\n\n\n\nFigure 2: The working rhythm\n\n\n\n\n\nTo colour boxes in the university’s palette, add these lines at the end of the diagram and list the boxes that should get each style:\n    classDef dark fill:#203151,stroke:#203151,color:#ffffff\n    classDef gold fill:#f1a400,stroke:#f1a400,color:#000000\n    class A,B dark\n    class C gold\nThe first two lines define a style (dark blue with white text; yellow with black text, as the corporate design allows), the last two apply them. The landing page of this course uses exactly this.\n\n\n\n\n\n\nWhen not to use a diagram\n\n\n\nIf you find yourself fighting the tool to get a complicated picture, draw it in any program you like, export it as PNG or SVG, and use it as an ordinary image. Do not spend an afternoon on a diagram.",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Images, Tables, Diagrams and References"
+    ]
+  },
+  {
+    "objectID": "04-media-tables-references.html#video",
+    "href": "04-media-tables-references.html#video",
+    "title": "Images, Tables, Diagrams and References",
+    "section": "4 Video",
+    "text": "4 Video\nA short video can explain a movement or a screen recording better than a page of text. Use the video shortcode with a web address or a local file:\n{{&lt; video media/hand-disinfection.mp4 &gt;}}\nTwo things to consider before you add one:\n\nWhere it is hosted matters. Embedding a video from a public platform makes the learner’s browser contact that company, which raises data-protection questions for a public university. Prefer a video hosted by the university or your own project, and ask your data-protection officer what is approved.\nProvide a transcript or captions. Learners who cannot hear, and learners in a quiet library, need them.",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Images, Tables, Diagrams and References"
+    ]
+  },
+  {
+    "objectID": "04-media-tables-references.html#citing-sources",
+    "href": "04-media-tables-references.html#citing-sources",
+    "title": "Images, Tables, Diagrams and References",
+    "section": "5 Citing sources",
+    "text": "5 Citing sources\nIf you refer to research or guidelines, cite them properly. The template builds the reference list automatically.\n\nKeep your sources in one file, references.bib. Each source has a short key of your choosing, for example roediger2006test.\nCite in the text by typing @ and the key: [@roediger2006test] gives (Roediger and Karpicke 2006). To cite two, separate with a semicolon: [@sweller1988cognitive; @mayer2009multimedia].\nThe list appears wherever the page references.qmd says so. You do not type it.\n\nYou almost never have to write references.bib by hand. If you use the reference manager Zotero, export your collection as BibTeX and save it over references.bib. In RStudio’s Visual mode, Insert → Citation… can also look a source up by its DOI and add it for you.\n\n\n\n\n\n\nCite for the learner, not for show\n\n\n\nA good course cites where a claim needs support or where a learner might want to read further. It does not need a citation after every sentence. Two or three well-chosen sources per chapter are plenty.",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Images, Tables, Diagrams and References"
+    ]
+  },
+  {
+    "objectID": "04-media-tables-references.html#check-your-understanding",
+    "href": "04-media-tables-references.html#check-your-understanding",
+    "title": "Images, Tables, Diagrams and References",
+    "section": "6 Check your understanding",
+    "text": "6 Check your understanding\n\n\n\n\nWhere should the image files for the course be stored?\n\nAnywhere; the website finds them\nIn the images/ folder of the project\nIn the docs/ folder\nPasted into a Word document next to the chapter\n\n\nKeep all pictures in images/, so they are in one place and the links in your chapters stay short and consistent. Never place anything in docs/; it is overwritten at every render.\n\n\n\nWhich is the best alt text for a screenshot of the Build tab?\n\nScreenshot\nimage1.png\nThe Build tab in RStudio, with the Render Website button highlighted\nLook at the picture above\n\n\nAlt text should say what the picture shows and why it is there, so that someone who cannot see it gets the same information.\n\n\n\nYou have a 6 MB photograph from a phone camera. What should you do before using it?\n\nNothing; the website compresses it automatically\nScale it down to about 1600 pixels wide and save it as a JPG\nConvert it to a table\nType the caption into the picture\n\n\nThe website serves the file exactly as it is, so a huge image slows every learner’s page down. Scale it before you add it.\n\n\nIn the text, a citation is written by typing the sign ? followed by the key.",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Images, Tables, Diagrams and References"
+    ]
+  },
+  {
+    "objectID": "02-plan-and-structure.html",
+    "href": "02-plan-and-structure.html",
+    "title": "Plan and Structure Your Course",
+    "section": "",
+    "text": "In this chapter\n\nWrite learning objectives that say what a learner can do\nCut a topic into chapters of a sensible size\nFind the four places that make up the project’s skeleton\nAdd, reorder and remove chapters\nStart your own course from the empty chapter skeleton",
+    "crumbs": [
+      "Course",
+      "Get going",
+      "Plan and Structure Your Course"
+    ]
+  },
+  {
+    "objectID": "02-plan-and-structure.html#plan-on-paper-first",
+    "href": "02-plan-and-structure.html#plan-on-paper-first",
+    "title": "Plan and Structure Your Course",
+    "section": "1 Plan on paper first",
+    "text": "1 Plan on paper first\nThe most common mistake in online courses is starting with the material: “I have forty slides, let me put them online.” Start with the learner instead. Three questions, in this order:\n\nWho is it for, and what do they already know?\nWhat should they be able to do afterwards? Not “know about” or “understand”, but do.\nHow will they, and you, find out that they can?\n\nOnly then decide what to teach. Planning backwards from the outcome like this is sometimes called backward design (Wiggins and McTighe 2005), and it removes most of the material you would otherwise have felt obliged to include.\n\nWriting objectives that can be checked\nAn objective is useful when you can imagine the question that tests it. Vague verbs cannot be tested; concrete verbs can (Anderson and Krathwohl 2001).\n\n\n\nTable 1: Turning vague objectives into checkable ones\n\n\n\n\n\n\n\n\n\nVague\nConcrete\n\n\n\n\nUnderstand hand hygiene\nList the five moments for hand disinfection\n\n\nKnow the consent process\nExplain to a patient, in plain words, what they are consenting to\n\n\nBe familiar with the system\nEnter a new patient record without help\n\n\n\n\n\n\nAim for three to six objectives per course and two to four per chapter. They go at the top of the page in the blue objectives panel, and they become your quiz questions later.\n\n\nCut it into chapters\nA chapter should be one topic that a learner can finish in a single sitting, roughly 15 to 30 minutes. This is a rule of thumb, not a law, but there is good reason behind it: people can hold only a few new things in mind at once, so material that introduces one idea at a time, and lets the learner use it before adding the next, is easier to learn from (Sweller 1988).\nInside a chapter, follow the same rhythm every time. Learners then always know where they are:\n\nObjectives (what this chapter is for)\nExplanation in short sections, each with its own heading\nA key point box for the one thing to remember\nQuestions to check understanding\n\nThat last step is not decoration. Answering a question about something you just read helps you remember it far better than reading it again (Roediger and Karpicke 2006). Put the questions in.\n\n\n\n\n\n\nUse the worksheet\n\n\n\nBefore creating any file, fill in this table on paper. If you cannot complete a row, that is the part of the course to think about next.\n\n\n\n\n\n\n\n\n\nChapter title\nObjective (what can the learner do?)\nHow will they check it?\nLength",
+    "crumbs": [
+      "Course",
+      "Get going",
+      "Plan and Structure Your Course"
+    ]
+  },
+  {
+    "objectID": "02-plan-and-structure.html#the-four-places-that-matter",
+    "href": "02-plan-and-structure.html#the-four-places-that-matter",
+    "title": "Plan and Structure Your Course",
+    "section": "2 The four places that matter",
+    "text": "2 The four places that matter\nEverything in the project is either a chapter, a setting, a picture or the appearance. You only need to know four places:\n\n\n\nTable 2: The project skeleton\n\n\n\n\n\n\n\n\n\n\nWhere\nWhat it holds\nYou edit it\n\n\n\n\n01-….qmd, 02-….qmd, …\nThe chapters, one file each\nConstantly\n\n\n_quarto.yml\nThe settings: course title, chapter order, footer\nWhen you add or reorder chapters, and once at the start\n\n\nimages/\nPictures, and the logo\nWhen you add pictures\n\n\nassets/\nColours, fonts and quiz behaviour, already set up in the university’s corporate design\nNever, unless you are asked to\n\n\n\n\n\n\nBesides these: index.qmd is the landing page, glossary.qmd and references.qmd are the reference pages, slides/ holds lecture slides, and docs/ is where the finished website appears. Do not edit anything in docs/.",
+    "crumbs": [
+      "Course",
+      "Get going",
+      "Plan and Structure Your Course"
+    ]
+  },
+  {
+    "objectID": "02-plan-and-structure.html#name-your-files",
+    "href": "02-plan-and-structure.html#name-your-files",
+    "title": "Plan and Structure Your Course",
+    "section": "3 Name your files",
+    "text": "3 Name your files\nChapter files are named with a number, then a short description: 03-write-text.qmd. The rules are boring but they prevent trouble:\n\nLowercase letters, digits and hyphens only. No spaces, no umlauts.\nThe number keeps them in order in the Files panel. It does not control the order on the website; the settings file does.\nA file whose name starts with an underscore, like _draft-chapter.qmd, is ignored when the website is built. Use that for unfinished work.",
+    "crumbs": [
+      "Course",
+      "Get going",
+      "Plan and Structure Your Course"
+    ]
+  },
+  {
+    "objectID": "02-plan-and-structure.html#the-chapter-list-_quarto.yml",
+    "href": "02-plan-and-structure.html#the-chapter-list-_quarto.yml",
+    "title": "Plan and Structure Your Course",
+    "section": "4 The chapter list: _quarto.yml",
+    "text": "4 The chapter list: _quarto.yml\nOpen _quarto.yml. Most of the file you can leave alone. The part that matters for structure is the sidebar: block, which is the chapter list learners see on the left of every page:\n  sidebar:\n    style: docked\n    contents:\n      - index.qmd\n      - section: \"Basics\"\n        contents:\n          - 01-first-steps.qmd\n          - 02-the-workflow.qmd\n      - section: \"Practice\"\n        contents:\n          - 03-exercises.qmd\nRead it top to bottom and it matches the sidebar exactly: a landing page, then a group called Basics with two chapters, then a group called Practice with one.\n\n\n\n\n\n\nThis file is strict about spaces\n\n\n\nIndentation carries meaning here. Use spaces, never the Tab key. Each level is indented two spaces further, a dash is followed by a space, and a colon is followed by a space. When in doubt, copy an existing line and change only the words.\n\n\n\nAdd a chapter\n\nCopy _chapter-skeleton.qmd, and name the copy, say, 04-feedback.qmd.\nOpen it, change the title: at the top and write the chapter.\nIn _quarto.yml, add one line in the right place in the list: - 04-feedback.qmd, indented to match its neighbours.\nRender.\n\n\n\nReorder, group or remove\n\nReorder: move the line up or down in the list.\nGroup: put chapters under a - section: \"Name\" block, as above.\nRemove: delete its line from the list, then delete the file (or put an underscore in front of its name to keep it as a draft). If you delete the file but leave the line, the render will complain that it cannot find it.",
+    "crumbs": [
+      "Course",
+      "Get going",
+      "Plan and Structure Your Course"
+    ]
+  },
+  {
+    "objectID": "02-plan-and-structure.html#the-top-menu",
+    "href": "02-plan-and-structure.html#the-top-menu",
+    "title": "Plan and Structure Your Course",
+    "section": "5 The top menu",
+    "text": "5 The top menu\nThe bar across the top has a few links (Course, Slides, Glossary). They are listed under navbar: in the same file, in the same style. Keep it short: three or four links. The chapters belong in the sidebar, not here.",
+    "crumbs": [
+      "Course",
+      "Get going",
+      "Plan and Structure Your Course"
+    ]
+  },
+  {
+    "objectID": "02-plan-and-structure.html#start-your-own-course",
+    "href": "02-plan-and-structure.html#start-your-own-course",
+    "title": "Plan and Structure Your Course",
+    "section": "6 Start your own course",
+    "text": "6 Start your own course\nYou have two sensible ways to begin.\n\nKeep this course as your manualStart from an empty project\n\n\nMake a copy of the whole project folder for your own course, and keep the original untouched. Then you can consult this course while you work on yours. This is what we recommend for a first course.\n\n\n\nCopy the project folder and rename it as in Chapter 1.\nIn _quarto.yml, replace the chapter list with your own (start with just index.qmd and one chapter).\nDelete the eight chapter files of this course, or put an underscore in front of them to keep them out of the build.\nCreate your first chapter from _chapter-skeleton.qmd.\nEdit index.qmd for your own course, and change the title, description and footer in _quarto.yml.",
+    "crumbs": [
+      "Course",
+      "Get going",
+      "Plan and Structure Your Course"
+    ]
+  },
+  {
+    "objectID": "02-plan-and-structure.html#the-landing-page",
+    "href": "02-plan-and-structure.html#the-landing-page",
+    "title": "Plan and Structure Your Course",
+    "section": "7 The landing page",
+    "text": "7 The landing page\nindex.qmd is the first thing a learner sees. It should answer five questions in a few lines each: What is this course? Who is it for? What will I be able to do afterwards? How long does it take? What do I need beforehand? Put the objectives panel and a short route through the chapters on it. This course’s own landing page is a working example.",
+    "crumbs": [
+      "Course",
+      "Get going",
+      "Plan and Structure Your Course"
+    ]
+  },
+  {
+    "objectID": "02-plan-and-structure.html#check-your-understanding",
+    "href": "02-plan-and-structure.html#check-your-understanding",
+    "title": "Plan and Structure Your Course",
+    "section": "8 Check your understanding",
+    "text": "8 Check your understanding\n\n\n\n\nWhich of these is a learning objective that can be checked?\n\nUnderstand the principles of good communication\nBe aware of the risks of the procedure\nExplain the three main risks of the procedure to a colleague\nAppreciate the importance of documentation\n\n\nOnly the third names something a learner does that you could ask a question about. “Understand”, “be aware of” and “appreciate” describe an inner state you cannot observe.\n\n\n\nYou rename 05-quality.qmd to _05-quality.qmd. What happens at the next render?\n\nIt appears at the top of the sidebar\nIt is skipped, so it is not built into the website\nThe render fails\nIt is published with a “draft” label\n\n\nA leading underscore tells the build to ignore a file. It is the simplest way to keep unfinished work in the project without publishing it. If the chapter is still listed in _quarto.yml, remove that line too.\n\n\n\nThe order of chapters in the sidebar is decided by:\n\nThe numbers in the file names\nThe alphabetical order of the titles\nThe order of the lines in _quarto.yml\nThe date the files were last edited\n\n\nFile numbers only help you keep the Files panel tidy. The sidebar follows the list in the settings file, so reordering means moving a line.\n\n\nA chapter should take a learner roughly ? minutes. (Type a number of minutes and click elsewhere; anything from 10 to 30 counts.)",
+    "crumbs": [
+      "Course",
+      "Get going",
+      "Plan and Structure Your Course"
+    ]
+  },
+  {
+    "objectID": "01-set-up.html",
+    "href": "01-set-up.html",
+    "title": "Set Up and First Render",
+    "section": "",
+    "text": "In this chapter\n\nExplain in one sentence how text files become a course website\nInstall R and RStudio\nOpen the project and build the website for the first time\nMake one change and see it appear",
+    "crumbs": [
+      "Course",
+      "Get going",
+      "Set Up and First Render"
+    ]
+  },
+  {
+    "objectID": "01-set-up.html#the-idea-in-three-sentences",
+    "href": "01-set-up.html#the-idea-in-three-sentences",
+    "title": "Set Up and First Render",
+    "section": "1 The idea in three sentences",
+    "text": "1 The idea in three sentences\nYou write your course as ordinary text files, one per chapter. You press one button, and the software turns those files into a finished website: navigation, search, quizzes, the university’s colours and logo, all included. That website is just a folder of files, which you then put on GitHub or GitLab, where it is shown to learners as a normal web address.\nThink of it like exporting a Word document to PDF. You write, you press export, you get the finished thing. The difference is that the “finished thing” is a whole website, and that this one already looks the way the university expects.\n\nKey point\nYou never edit the website itself. You edit the text files and render (build) the website again. If something on the website is wrong, you fix the text file, not the web page.",
+    "crumbs": [
+      "Course",
+      "Get going",
+      "Set Up and First Render"
+    ]
+  },
+  {
+    "objectID": "01-set-up.html#step-1-install-r-and-rstudio",
+    "href": "01-set-up.html#step-1-install-r-and-rstudio",
+    "title": "Set Up and First Render",
+    "section": "2 Step 1: install R and RStudio",
+    "text": "2 Step 1: install R and RStudio\nTwo free programs, installed in this order.\n\nR — the engine underneath. Download from cran.r-project.org: choose your operating system, then the download link for the latest version, and run the installer with the default choices.\nRStudio Desktop — the program you actually work in. Download from posit.co/download/rstudio-desktop and install it.\n\nRStudio includes Quarto, the tool that builds the website. There is nothing else to install.\n\n\n\n\n\n\nYou will not write R code\n\n\n\nThis template contains no R code, and you do not need to know any. R is only the engine that RStudio runs on. You will work with text, images and quiz questions.\n\n\n\n\n\n\n\n\nOn a managed work computer\n\n\n\nIf you are not allowed to install programs, ask your IT support for R and RStudio Desktop. Many institutions offer them through a software portal. Tell them you need RStudio Desktop with Quarto, so they install a version recent enough to include it.",
+    "crumbs": [
+      "Course",
+      "Get going",
+      "Set Up and First Render"
+    ]
+  },
+  {
+    "objectID": "01-set-up.html#step-2-put-the-project-in-the-right-place",
+    "href": "01-set-up.html#step-2-put-the-project-in-the-right-place",
+    "title": "Set Up and First Render",
+    "section": "3 Step 2: put the project in the right place",
+    "text": "3 Step 2: put the project in the right place\nYou receive the template as a folder (or a zip file, which you unzip first).\n\nCopy the folder to a normal location on your own computer, such as Documents.\nRename it to something that describes your course, for example wound-care-course. Use lowercase letters and hyphens; avoid spaces, umlauts and special characters.\nInside, rename course-template.Rproj to the same name, for example wound-care-course.Rproj.\n\n\n\n\n\n\n\nAvoid synchronised and network folders\n\n\n\nKeep the project on the computer’s own disk. Folders that are continuously synchronised (cloud storage) or that live on a network drive can be slow and can lock files while the website is being built, which causes confusing errors.",
+    "crumbs": [
+      "Course",
+      "Get going",
+      "Set Up and First Render"
+    ]
+  },
+  {
+    "objectID": "01-set-up.html#step-3-open-the-project-and-build-the-website",
+    "href": "01-set-up.html#step-3-open-the-project-and-build-the-website",
+    "title": "Set Up and First Render",
+    "section": "4 Step 3: open the project and build the website",
+    "text": "4 Step 3: open the project and build the website\n\nDouble-click the .Rproj file. RStudio opens with the project loaded.\nFind the Build tab, usually in the upper-right panel.\nClick Render Website.\n\nThe first build takes a minute or two. Progress appears in a panel labelled Background Jobs, and when it finishes, the website opens in RStudio’s Viewer pane or in your browser. That is your course, running.\n\n\n\n\n\n\nIf there is no Build tab\n\n\n\nRStudio only shows it when the project was opened through the .Rproj file. Use File → Open Project… and choose that file.\n\n\nThe finished website is written to a folder called docs inside your project. Chapter 8 explains why it has that name and what to do with it. For now, just know that this folder is the product: everything a learner sees is in there.",
+    "crumbs": [
+      "Course",
+      "Get going",
+      "Set Up and First Render"
+    ]
+  },
+  {
+    "objectID": "01-set-up.html#step-4-your-first-edit",
+    "href": "01-set-up.html#step-4-your-first-edit",
+    "title": "Set Up and First Render",
+    "section": "5 Step 4: your first edit",
+    "text": "5 Step 4: your first edit\n\nIn RStudio’s Files panel, click index.qmd to open it.\nChange the title: line at the top to something of your own.\nSave (Ctrl+S, or Cmd+S on a Mac).\nClick Render Website again.\n\nYour new title appears. That is the whole working rhythm of this course: edit, save, render, look. Repeat as often as you like; nothing you do can break the original, and a render is harmless.\n\nEditing without seeing the markup\nThe file you just opened shows some symbols (#, *, :::). That is the source view. You do not have to live there. At the top-left of the editor there are two buttons, Source and Visual. Click Visual and the file looks like a word processor: bold and italic buttons, bullet lists, an Insert menu for pictures, tables and callouts. The text underneath is written for you.\nMost authors work in Visual mode and switch to Source only to fix something particular. Chapters 3 and 4 show both views side by side.",
+    "crumbs": [
+      "Course",
+      "Get going",
+      "Set Up and First Render"
+    ]
+  },
+  {
+    "objectID": "01-set-up.html#what-if-something-goes-wrong",
+    "href": "01-set-up.html#what-if-something-goes-wrong",
+    "title": "Set Up and First Render",
+    "section": "6 What if something goes wrong?",
+    "text": "6 What if something goes wrong?\n\n\n\nTable 1: Common first-day problems\n\n\n\n\n\n\n\n\n\n\nWhat you see\nWhat it usually means\nWhat to do\n\n\n\n\nAn error message in the Background Jobs panel\nA typo in a text file. The message names the file and often the line\nOpen that file, look at the line named, compare with a working example\n\n\nThe error mentions the settings file, _quarto.yml\nWrong indentation. That file is fussy about spaces\nUse spaces, never the Tab key; copy an existing block and change only the words\n\n\nThe page still shows old content\nIt was not rebuilt\nClick Render Website again and refresh the browser (Ctrl+F5)\n\n\nSearch does not work when you double-click a page in docs\nSearch needs the site to be served, not opened from disk\nUse the preview RStudio gives you after rendering, or check search once the site is published",
+    "crumbs": [
+      "Course",
+      "Get going",
+      "Set Up and First Render"
+    ]
+  },
+  {
+    "objectID": "01-set-up.html#check-your-understanding",
+    "href": "01-set-up.html#check-your-understanding",
+    "title": "Set Up and First Render",
+    "section": "7 Check your understanding",
+    "text": "7 Check your understanding\n\n\n\n\nYou spot a spelling mistake on a page of the finished website. Where do you fix it?\n\nIn the HTML file inside the docs folder\nIn the .qmd text file, then render the website again\nIn the browser, by clicking on the text\nIn the .Rproj file\n\n\nThe website is generated from the text files. If you correct the generated file, your fix is overwritten the next time you render. Always correct the source.\n\n\n\nDo you need to know how to program in R to use this template?\n\nYes, at least the basics\nNo. R is only the engine RStudio runs on; you work with text and menus\nYes, but only to build the quizzes\nOnly if the course has images\n\n\nThe template contains no R code. Quizzes are written as plain text, and images and tables are inserted from menus or with a few characters of markup.\n\n\nThe working rhythm of this course is: edit, save, ?, look. (Type the missing word and click elsewhere. Render is the word for building the website from the text files; in RStudio it is the Render Website button.)",
+    "crumbs": [
+      "Course",
+      "Get going",
+      "Set Up and First Render"
+    ]
+  },
+  {
+    "objectID": "03-write-text.html",
+    "href": "03-write-text.html",
+    "title": "Write Text",
+    "section": "",
+    "text": "In this chapter\n\nWrite and format text in Visual mode, and read the same text in Source mode\nStructure a page with headings that work for navigation and screen readers\nUse callouts, tabs, key-point boxes and footnotes in the right places\nLink to other chapters and to the glossary",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Write Text"
+    ]
+  },
+  {
+    "objectID": "03-write-text.html#two-views-of-the-same-file",
+    "href": "03-write-text.html#two-views-of-the-same-file",
+    "title": "Write Text",
+    "section": "1 Two views of the same file",
+    "text": "1 Two views of the same file\nEvery chapter is a text file. RStudio shows it in one of two ways, switched by the Source and Visual buttons at the top-left of the editor.\n\nVisual looks like a word processor. Use the toolbar for bold, lists and links, and the Insert menu for pictures, tables, callouts and more.\nSource shows the plain text, with a few symbols marking the formatting. This is called markdown.\n\nYou can switch at any time without losing anything. If you never want to see markdown, you never have to. But it is worth being able to read it, because this course shows examples in that form, and because a fix in Source view is sometimes faster than hunting for the right menu.",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Write Text"
+    ]
+  },
+  {
+    "objectID": "03-write-text.html#markdown-in-one-table",
+    "href": "03-write-text.html#markdown-in-one-table",
+    "title": "Write Text",
+    "section": "2 Markdown in one table",
+    "text": "2 Markdown in one table\nThe left column is what you type in Source view. The right column is what the reader sees.\n\n\n\nTable 1: The handful of markdown symbols you will use daily\n\n\n\n\n\nYou type\nThe reader sees\n\n\n\n\n## A heading\n(a section heading, see below)\n\n\n**important**\nimportant\n\n\n*emphasis*\nemphasis\n\n\n`file.qmd`\nfile.qmd\n\n\n- item on a new line\na bullet point\n\n\n1. step on a new line\na numbered step\n\n\n[the glossary](glossary.qmd)\nthe glossary\n\n\n&gt; quotation\na quotation block\n\n\n\n\n\n\nA blank line separates paragraphs. A list needs a blank line before it. That is nearly all there is.",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Write Text"
+    ]
+  },
+  {
+    "objectID": "03-write-text.html#the-top-of-every-file",
+    "href": "03-write-text.html#the-top-of-every-file",
+    "title": "Write Text",
+    "section": "3 The top of every file",
+    "text": "3 The top of every file\nEach chapter starts with a small block between two lines of three dashes:\n---\ntitle: \"Write Text\"\nsubtitle: \"Headings, emphasis, links, and the boxes that make a page easy to read\"\n---\nThe title becomes the page heading and the entry in the sidebar. The subtitle is optional and appears underneath. Keep the quotation marks and the dashes.",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Write Text"
+    ]
+  },
+  {
+    "objectID": "03-write-text.html#headings",
+    "href": "03-write-text.html#headings",
+    "title": "Write Text",
+    "section": "4 Headings",
+    "text": "4 Headings\nUse headings to divide the chapter into short sections. In Source view they are lines starting with ## (a main section) or ### (a subsection):\n## Main section\n\n### A subsection inside it\nIn Visual mode, use the paragraph-style drop-down in the toolbar and choose Heading 2 or Heading 3.\nThree rules, because headings do more work than they appear to:\n\nDo not use # (a single hash) inside a chapter. The page title already uses that level. Start with ##.\nNever skip a level. A ### belongs under a ##.\nNever fake a heading with bold text. Real headings feed the “On this page” list on the right, the automatic numbering, and search. They are also how people using a screen reader jump around the page. Bold text does none of that.\n\n\nKey point\nA learner scans before they read. Make the headings tell the story on their own: “How to add a chapter” beats “Chapters”.",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Write Text"
+    ]
+  },
+  {
+    "objectID": "03-write-text.html#writing-for-the-screen",
+    "href": "03-write-text.html#writing-for-the-screen",
+    "title": "Write Text",
+    "section": "5 Writing for the screen",
+    "text": "5 Writing for the screen\nReading on a screen is not reading on paper. A few habits help:\n\nShort paragraphs, three or four sentences.\nSay the point first, then explain.\nLink text should make sense alone. “Read the glossary” is good; “click here” is not, because screen-reader users often hear a list of links with no surrounding text.\nUse lists when items are parallel, and numbered lists only when order matters.\nWrite in the second person (“you will”) and keep sentences plain.",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Write Text"
+    ]
+  },
+  {
+    "objectID": "03-write-text.html#linking",
+    "href": "03-write-text.html#linking",
+    "title": "Write Text",
+    "section": "6 Linking",
+    "text": "6 Linking\nTo link to another chapter, use its file name, not a web address:\nSee [Chapter 2](02-plan-and-structure.qmd) for how to add a chapter.\nThis keeps working after the course is published, even if the web address changes. To link to another website, use the full address starting with https://. In Visual mode, select the words and press Ctrl+K (Cmd+K on a Mac).",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Write Text"
+    ]
+  },
+  {
+    "objectID": "03-write-text.html#boxes-that-carry-meaning",
+    "href": "03-write-text.html#boxes-that-carry-meaning",
+    "title": "Write Text",
+    "section": "7 Boxes that carry meaning",
+    "text": "7 Boxes that carry meaning\nBoxes draw the eye, so each kind should mean one thing, and a page should have few of them. This template has two families.\n\nCallouts\nCallouts are built in. There are five kinds; the colour and icon follow the university’s palette.\n\n\n\n\n\n\nNote\n\n\n\nExtra information that is useful but not essential.\n\n\n\n\n\n\n\n\nTip\n\n\n\nA shortcut or a piece of good practice.\n\n\n\n\n\n\n\n\nImportant\n\n\n\nSomething the reader must not miss.\n\n\n\n\n\n\n\n\nWarning\n\n\n\nA step where mistakes are likely or costly.\n\n\n\n\n\n\n\n\nCaution\n\n\n\nSomething that can cause a problem in specific circumstances.\n\n\nIn Source view a callout is written like this. The words after callout- pick the kind, and the ## line is its title:\n::: {.callout-warning}\n## Warning\n\nA step where mistakes are likely or costly.\n:::\nIn Visual mode, use Insert → Callout. Add collapse=\"true\" inside the braces to make a callout start folded, which is useful for extra detail:\n\n\n\n\n\n\nClick to unfold: an optional detail\n\n\n\n\n\nFolded callouts keep the main path short. Learners who want the detail can open it; the rest can skip it.\n\n\n\n\n\nObjectives and key point\nTwo boxes are specific to this template. Both are made the same way, with a ::: {.name} line, their content, and a closing :::. In Visual mode use Insert → Div… and type the class name (objectives or keypoint) into the attributes field.\n\nObjectivesKey point\n\n\nOnce, at the top of a chapter, in blue.\n::: {.objectives}\n**In this chapter**\n\n- Write objectives that can be checked\n- Cut a topic into chapters\n:::\n\n\nOnce per section at most, in yellow. The one thing to remember.\n::: {.keypoint}\n**Key point**\n\nYou edit the text files, never the finished website.\n:::\n\n\n\nTabs, as you just used, are also useful for alternatives such as “Windows” and “Mac”. Each ## heading inside a ::: {.panel-tabset} block becomes a tab.",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Write Text"
+    ]
+  },
+  {
+    "objectID": "03-write-text.html#footnotes",
+    "href": "03-write-text.html#footnotes",
+    "title": "Write Text",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nLike this one. It appears at the bottom of the page, and pops up when you hover over the number.↩︎",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Write Text"
+    ]
+  },
+  {
+    "objectID": "03-write-text.html#explaining-terms",
+    "href": "03-write-text.html#explaining-terms",
+    "title": "Write Text",
+    "section": "9 Explaining terms",
+    "text": "9 Explaining terms\nEvery field has words that learners do not know yet. Put them in the glossary page (glossary.qmd), and mark the first use in the text so that hovering shows the meaning. For example, the word render below has a dotted underline: on a computer, hover to see the explanation.\nClick [render]{.gloss title=\"Build the website from the text files\"} again.\nHover text does not appear on touch screens, so the glossary page is the primary place for definitions. The hover is a convenience.",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Write Text"
+    ]
+  },
+  {
+    "objectID": "03-write-text.html#check-your-understanding",
+    "href": "03-write-text.html#check-your-understanding",
+    "title": "Write Text",
+    "section": "10 Check your understanding",
+    "text": "10 Check your understanding\n\n\n\n\nYou want to start a new section in the middle of a chapter. What do you type?\n\n# New section\n## New section\n**New section**\nNEW SECTION\n\n\n## makes a real heading, one level below the page title. A single # is reserved for the title, and bold text is not a heading at all, so it would not appear in the “On this page” list.\n\n\n\nWhich link text is best?\n\nClick here for the glossary\nhttps://…/glossary.html\nLook up the term in the glossary\nLink\n\n\nGood link text describes the destination and makes sense when read on its own, which is how screen-reader users often meet links.\n\n\n\nFor a warning that only some readers need to see, in full detail, you should use:\n\nA key-point box\nA callout with collapse=\"true\"\nA heading\nRed text\n\n\nA folded callout keeps the main text short and leaves the detail to whoever wants it. Red text is not part of the template’s palette, and colour alone should never carry the meaning anyway.\n\n\nThe symbol pair you type around a word to make it bold is two ?. (Type the word, or the symbol.)",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Write Text"
+    ]
+  },
+  {
+    "objectID": "05-quizzes.html",
+    "href": "05-quizzes.html",
+    "title": "Quizzes",
+    "section": "",
+    "text": "In this chapter\n\nWrite a multiple-choice question with feedback\nWrite a fill-in-the-blank question for a word or a number\nAdd a running score to a page\nWrite questions that teach, not just test\nState what these quizzes can and cannot do",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Quizzes"
+    ]
+  },
+  {
+    "objectID": "05-quizzes.html#why-quizzes-belong-in-every-chapter",
+    "href": "05-quizzes.html#why-quizzes-belong-in-every-chapter",
+    "title": "Quizzes",
+    "section": "1 Why quizzes belong in every chapter",
+    "text": "1 Why quizzes belong in every chapter\nAnswering a question about something you have just read is one of the most reliable ways to remember it. In the classic experiments, learners who were tested on a passage remembered more a week later than learners who simply read it again (Roediger and Karpicke 2006). So the questions at the end of a chapter are not an extra: they are part of the teaching.\nThe template has a small quiz tool built in. You write questions as plain text, and the website turns them into clickable questions. Nothing needs installing, and nothing is sent anywhere.",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Quizzes"
+    ]
+  },
+  {
+    "objectID": "05-quizzes.html#multiple-choice",
+    "href": "05-quizzes.html#multiple-choice",
+    "title": "Quizzes",
+    "section": "2 Multiple choice",
+    "text": "2 Multiple choice\nA question is a block that starts with ::: {.question} and ends with :::. Inside: the question, a list of options, and (optionally) an explanation. Mark the correct option with an x between the brackets.\n::: {.question}\nWhich file holds the chapter order?\n\n- [ ] index.qmd\n- [x] _quarto.yml\n- [ ] references.bib\n\n::: {.feedback}\nThe list under `sidebar:` in `_quarto.yml` decides the order.\n:::\n:::\nHere is the result. Try it, and try getting it wrong to see what happens.\n\nWhich file holds the chapter order?\n\nindex.qmd\n_quarto.yml\nreferences.bib\n\n\nThe list under sidebar: in _quarto.yml decides the order.\n\n\nThe learner picks an option and presses Check answer. The right option turns blue with a tick; a wrong choice turns yellow with a cross; and the explanation appears either way. Options are locked afterwards, so the learner cannot simply click through them all.\nExactly one option must be marked correct. Everything between the options and the ::: {.feedback} block is optional, but the feedback is where the teaching happens, so please always write it.\nIn Visual mode, the easiest way is to write the question as an ordinary paragraph, type the options as a task list (Insert → Task List or a bullet list with checkboxes), and wrap the whole thing with Insert → Div…, class question. Many authors find it quicker to copy a finished question in Source view and change the words.",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Quizzes"
+    ]
+  },
+  {
+    "objectID": "05-quizzes.html#fill-in-the-blank",
+    "href": "05-quizzes.html#fill-in-the-blank",
+    "title": "Quizzes",
+    "section": "3 Fill in the blank",
+    "text": "3 Fill in the blank\nFor a word, name or number that the learner should recall, put a marker right in the sentence:\nThe tool that builds the website is called [?]{.fitb answer=\"Quarto\"}.\nThe tool that builds the website is called ?. Try typing it, then click elsewhere.\nThe [?] becomes a small input box. Some details:\n\nCase and spaces do not matter: “quarto” is accepted.\nSeveral accepted answers: separate them with a vertical bar, for example answer=\"qmd|.qmd\".\nNumbers are graded as numbers. Add a tolerance with tol: [?]{.fitb answer=\"20\" tol=\"10\"} accepts anything from 10 to 30. Without tol, the number must match to within 0.01. A decimal comma is accepted as well as a decimal point.\n\n\n\n\n\n\n\nDo not wrap a fill-in in a question block\n\n\n\nA fill-in is a sentence with a blank. Put it straight into the running text, as above. The ::: {.question} block is only for multiple choice.",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Quizzes"
+    ]
+  },
+  {
+    "objectID": "05-quizzes.html#a-running-score",
+    "href": "05-quizzes.html#a-running-score",
+    "title": "Quizzes",
+    "section": "4 A running score",
+    "text": "4 A running score\nTo show a scoreboard that counts correct answers on the page, place an empty block above your questions:\n::: {.quiz-score}\n:::\nIt shows “0 / 3” and updates as the learner answers. It counts the multiple-choice questions on that page. Every chapter in this course has one.",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Quizzes"
+    ]
+  },
+  {
+    "objectID": "05-quizzes.html#writing-questions-that-teach",
+    "href": "05-quizzes.html#writing-questions-that-teach",
+    "title": "Quizzes",
+    "section": "5 Writing questions that teach",
+    "text": "5 Writing questions that teach\nA question is only as good as its wrong answers and its feedback.\n\nTest the objective, not trivia. Look at the objective for the chapter and write a question that checks exactly that.\nMake the wrong options plausible. Each should be something a learner who has misunderstood would actually choose. Silly options teach nothing.\nAvoid “all of the above” and “none of the above”. They reward guessing strategy rather than knowledge.\nKeep options similar in length and put the correct one in a varying position. The template does not shuffle the options, so vary them yourself.\nExplain in the feedback. Say why the right answer is right and, briefly, why the tempting wrong one is not. Feedback on a wrong answer is where most of the learning occurs.\nTwo to four questions per chapter is usually enough.\n\n\nKey point\nWrite the feedback first. If you cannot explain why an answer is right in two sentences, the question is not ready.",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Quizzes"
+    ]
+  },
+  {
+    "objectID": "05-quizzes.html#what-these-quizzes-are-and-are-not",
+    "href": "05-quizzes.html#what-these-quizzes-are-and-are-not",
+    "title": "Quizzes",
+    "section": "6 What these quizzes are, and are not",
+    "text": "6 What these quizzes are, and are not\n\n\n\n\n\n\nSelf-check, not an examination\n\n\n\nThe answers are checked inside the learner’s own browser. Nothing is recorded, no score is sent to you, and there is no login. A learner who looks at the page source can read the right answers.\nThat makes these quizzes ideal for practice and immediate feedback, and unsuitable for anything that counts towards a grade, a certificate or a licence. For those, use the test tools of your learning platform, and link to your course from there.\n\n\nIf you need to know how learners are doing, the honest options are a short survey at the end, or a linked exercise in your learning platform.",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Quizzes"
+    ]
+  },
+  {
+    "objectID": "05-quizzes.html#check-your-understanding",
+    "href": "05-quizzes.html#check-your-understanding",
+    "title": "Quizzes",
+    "section": "7 Check your understanding",
+    "text": "7 Check your understanding\n\n\n\n\nHow do you mark the correct option in a multiple-choice question?\n\nWrite the word “correct” after it\nPut an x in its brackets: - [x] option\nMake it bold\nPut it first in the list\n\n\nThe x in the brackets marks the correct option. Position and formatting make no difference, so put the right answer wherever suits the question.\n\n\n\nA colleague wants to use these quizzes for the final exam of a course, with results sent to the teacher. What is your advice?\n\nGo ahead; the score is saved automatically\nAdd a name field to every question\nUse the platform’s test tool instead; these quizzes record nothing and the answers can be read in the page source\nHide the answers in white text\n\n\nThe quizzes run entirely in the reader’s browser, by design. They are excellent for practice and useless for assessment. Hiding the answers in white text would not hide them from anyone who knows to look, and it would break accessibility.\n\n\n\nWhat is the most useful part of a question for learning?\n\nThe number of options\nThe score counter\nThe feedback that explains why an answer is right or wrong\nThe colour of the correct option\n\n\nThe moment after a learner answers is the moment they most want to know why. Use it.\n\n\nIn a multiple-choice question, the correct option is the one with the letter ? between its brackets.",
+    "crumbs": [
+      "Course",
+      "Write",
+      "Quizzes"
+    ]
+  },
+  {
+    "objectID": "07-check-before-release.html",
+    "href": "07-check-before-release.html",
+    "title": "Check Before Release",
+    "section": "",
+    "text": "In this chapter\n\nFind leftover template text and placeholder settings\nReview a course for accessibility in ten minutes\nTest the course on a small screen and in dark mode\nRecognise the legal and privacy questions to settle before going public\nGet one other person to test it\nOnce a course is public, learners will find every typo, broken link and leftover “Placeholder” for you. A structured check before release costs an hour and saves the awkward emails. Work through the sections below in order.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Check Before Release"
+    ]
+  },
+  {
+    "objectID": "07-check-before-release.html#content",
+    "href": "07-check-before-release.html#content",
+    "title": "Check Before Release",
+    "section": "1 1. Content",
+    "text": "1 1. Content\n\nEvery chapter has objectives at the top, and every objective is covered by at least one question.\nRead each chapter once, aloud or slowly. You will hear what you cannot see: sentences that are too long, steps out of order.\nRun the spell checker. In RStudio, open a chapter and press F7 (or use Edit → Check Spelling). Do it for every file.\nCheck facts, numbers and dates, especially anything that might have changed since you wrote it.\nClick every link to an outside website. Web addresses go out of date.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Check Before Release"
+    ]
+  },
+  {
+    "objectID": "07-check-before-release.html#leftover-template-text",
+    "href": "07-check-before-release.html#leftover-template-text",
+    "title": "Check Before Release",
+    "section": "2 2. Leftover template text",
+    "text": "2 2. Leftover template text\nThe commonest slip is publishing the template’s own words. Use RStudio’s search across all files: Edit → Find in Files… (Ctrl+Shift+F, or Cmd+Shift+F on a Mac). Search for each of these, and fix every hit outside the parts of the course that you deliberately kept:\n\nCourse Template\nexample.org\nPlaceholder\nYour name\nplaceholder.svg\n\nThen open _quarto.yml and check the lines marked CHANGE: the course title, the description, the web address (site-url), the chapter list and the footer. Also check index.qmd: the author line and the date.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Check Before Release"
+    ]
+  },
+  {
+    "objectID": "07-check-before-release.html#the-look",
+    "href": "07-check-before-release.html#the-look",
+    "title": "Check Before Release",
+    "section": "3 3. The look",
+    "text": "3 3. The look\nRender the whole website with Render Website, not just a single file, so no stale pages remain. Then look at it the way learners will:\n\nOn a small screen. Make the browser window narrow (drag its edge) until the layout switches to the phone view. Text should stay readable, and no horizontal scrolling should be needed. Better still, open the published site on a real phone once.\nIn dark mode. Switch your computer to dark appearance and reload. Text, boxes and the logo should stay legible.\nIn the print preview, if learners will print chapters.\nIn the search. Type a word you know is in a chapter, and confirm it is found. Search works on the published site, and may not when you open the files from disk.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Check Before Release"
+    ]
+  },
+  {
+    "objectID": "07-check-before-release.html#accessibility",
+    "href": "07-check-before-release.html#accessibility",
+    "title": "Check Before Release",
+    "section": "4 4. Accessibility",
+    "text": "4 4. Accessibility\nA course that not everyone can use is unfinished. Ten minutes:\n\nAlt text on every image (Chapter 4). No “image1”.\nHeadings in order, never skipped, never faked with bold text (Chapter 3).\nLink text that makes sense alone. Search your chapters for “click here”.\nNo information by colour alone. If a sentence says “the red button”, add a name.\nVideo has captions or a transcript.\nTry the keyboard. Press Tab repeatedly through a page and check that you can reach and use links, menus and the quiz buttons without a mouse.\n\nThe standard behind these points is the Web Content Accessibility Guidelines (World Wide Web Consortium 2023); the template’s colours already pass its contrast requirements, so you only need to keep to the habits above.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Check Before Release"
+    ]
+  },
+  {
+    "objectID": "07-check-before-release.html#legal-and-privacy",
+    "href": "07-check-before-release.html#legal-and-privacy",
+    "title": "Check Before Release",
+    "section": "5 5. Legal and privacy",
+    "text": "5 5. Legal and privacy\n\n\n\n\n\n\nAsk, do not guess\n\n\n\nThe rules for what a public university website must contain, and what may be published, are set by your institution. Confirm the following with the responsible office before release.\n\n\n\nImprint and privacy notice. Public websites in Germany normally need an imprint (Impressum) and, where personal data is processed, a privacy notice. Ask your communications or data-protection office for the standard wording and the address to link to. The footer in _quarto.yml has a commented-out example showing where such a link goes.\nPicture, text and video rights. Do you have the right to publish every image, table and quotation? Is each one credited as its licence requires?\nPatient and personal data. Nothing that identifies a patient or a colleague, in text, images, screenshots or file names. Look at screenshots for name fields, record numbers and dates of birth.\nThird-party services. If you have embedded a video or map from an outside provider, your data-protection office needs to have approved it.\nThe licence of your own material. State how others may reuse the course, if at all, in the footer or on the landing page.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Check Before Release"
+    ]
+  },
+  {
+    "objectID": "07-check-before-release.html#a-fresh-pair-of-eyes",
+    "href": "07-check-before-release.html#a-fresh-pair-of-eyes",
+    "title": "Check Before Release",
+    "section": "6 6. A fresh pair of eyes",
+    "text": "6 6. A fresh pair of eyes\nAsk one person who does not know the subject to work through one chapter while you watch, and say nothing. Note every place they hesitate, re-read or click the wrong thing. These are the places to improve. You will learn more in twenty minutes than in a day of rereading your own text.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Check Before Release"
+    ]
+  },
+  {
+    "objectID": "07-check-before-release.html#before-you-press-publish",
+    "href": "07-check-before-release.html#before-you-press-publish",
+    "title": "Check Before Release",
+    "section": "7 7. Before you press publish",
+    "text": "7 7. Before you press publish\n\nThe whole website has been rendered again after your last change.\nNothing is left in the sidebar that you do not want learners to see. Drafts start with an underscore.\nYou know what web address the course will have, and it is entered as site-url.\n\nYou are ready for Chapter 8.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Check Before Release"
+    ]
+  },
+  {
+    "objectID": "07-check-before-release.html#check-your-understanding",
+    "href": "07-check-before-release.html#check-your-understanding",
+    "title": "Check Before Release",
+    "section": "8 Check your understanding",
+    "text": "8 Check your understanding\n\n\n\n\nWhich of these is the best way to find leftover placeholder text across the whole project?\n\nRead every chapter again\nUse Edit → Find in Files and search for the placeholder words\nAsk a learner to report them\nRender the website and look at the sidebar\n\n\nA search across all files finds every hit in seconds, including ones in files you have not opened for weeks. Reading is slower and easily misses things.\n\n\n\nA screenshot in your chapter shows the RStudio window on your own computer, including a project name and your user name. What should you do?\n\nNothing; a screenshot is not personal data\nCheck it for anything that identifies a person or a patient, and crop or redo it if necessary\nAdd alt text and move on\nReduce its size\n\n\nScreenshots regularly reveal names, file paths and records that their authors did not notice. Look at the whole picture, at full size, before publishing.\n\n\n\nWhy render the whole website before release, rather than only the chapter you last changed?\n\nIt is faster\nSingle pages cannot be published\nA full render rebuilds every page and clears out pages that no longer belong to the course\nIt creates the search box\n\n\nA full render leaves the output folder in the exact state that will be published, with no stale leftovers from earlier versions.\n\n\nThe menu you use in RStudio to search through every file at once is called Edit → Find in ?.",
+    "crumbs": [
+      "Course",
+      "Slides and release",
+      "Check Before Release"
+    ]
+  },
+  {
+    "objectID": "glossary.html",
+    "href": "glossary.html",
+    "title": "Glossary",
+    "section": "",
+    "text": "Terms are listed alphabetically. The right-hand column says where the term is explained in context.\n\n\n\nTerm\nMeaning\nChapter\n\n\n\n\nAlt text\nA written description of an image, read aloud by screen readers and shown when the image cannot load\n4\n\n\nCallout\nA coloured box for a note, tip, warning or similar remark\n3\n\n\nCommit\nA saved, labelled snapshot of your changes in a repository\n8\n\n\nDocs folder (docs)\nThe folder where the finished website is written. It is what gets published\n1, 8\n\n\nGitHub / GitLab\nWebsites that store projects online and can also show their web pages to the public\n8\n\n\nMarkdown\nA way of formatting text with a few plain symbols, such as ## for a heading and ** for bold\n3\n\n\nMermaid\nA tool that draws a diagram from a short text description\n4\n\n\nPages\nThe GitHub and GitLab feature that shows the files of a repository as a website\n8\n\n\nPush\nSending your commits from your computer to the online repository\n8\n\n\n.qmd file\nA text file holding one chapter. The extension stands for “Quarto markdown”\n1\n\n\nQuarto\nThe program that turns the text files into a website. It is included in RStudio\n1\n\n\nR\nThe engine that RStudio runs on. You do not need to write R code for this template\n1\n\n\nRender\nTo build the website from the text files. In RStudio: the Render Website button\n1\n\n\nRepository\nA project folder stored online together with the history of its changes\n8\n\n\nRStudio\nThe program in which you write the course and press Render\n1\n\n\nSidebar\nThe chapter list on the left of every page; set in _quarto.yml\n2\n\n\nSource / Visual mode\nThe two views of the RStudio editor: plain text with symbols, or a word-processor look\n1, 3\n\n\nSpeaker notes\nNotes on a slide that only the presenter sees\n6\n\n\nTask list\nA bullet list with checkboxes; here it is how quiz options are written\n5\n\n\nWCAG\nThe Web Content Accessibility Guidelines, the standard for accessible websites\n7\n\n\nYAML (.yml)\nA strict, indentation-based settings format. _quarto.yml is written in it\n2\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Course",
+      "Reference",
+      "Glossary"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References and Further Reading",
+    "section": "",
+    "text": "The learning-design advice in this course rests on a small number of well-known sources: planning from the outcome backwards (Wiggins and McTighe 2005), writing objectives with concrete verbs (Anderson and Krathwohl 2001), limiting how much is new at once (Sweller 1988), combining words with pictures (Mayer 2009), and using questions to help learners remember (Roediger and Karpicke 2006). The accessibility habits follow the Web Content Accessibility Guidelines (World Wide Web Consortium 2023).\n\n\nAnderson, Lorin W., and David R. Krathwohl, eds. 2001. A Taxonomy for Learning, Teaching, and Assessing: A Revision of Bloom’s Taxonomy of Educational Objectives. New York: Longman.\n\n\nMayer, Richard E. 2009. Multimedia Learning. 2nd ed. Cambridge: Cambridge University Press.\n\n\nRoediger, Henry L., and Jeffrey D. Karpicke. 2006. “Test-Enhanced Learning: Taking Memory Tests Improves Long-Term Retention.” Psychological Science 17 (3): 249–55.\n\n\nSweller, John. 1988. “Cognitive Load During Problem Solving: Effects on Learning.” Cognitive Science 12 (2): 257–85.\n\n\nWiggins, Grant, and Jay McTighe. 2005. Understanding by Design. 2nd ed. Alexandria, VA: ASCD.\n\n\nWorld Wide Web Consortium. 2023. “Web Content Accessibility Guidelines (WCAG) 2.2.” W3C Recommendation. https://www.w3.org/TR/WCAG22/.",
+    "crumbs": [
+      "Course",
+      "Reference",
+      "References and Further Reading"
+    ]
+  },
+  {
+    "objectID": "references.html#cited-in-this-course",
+    "href": "references.html#cited-in-this-course",
+    "title": "References and Further Reading",
+    "section": "",
+    "text": "The learning-design advice in this course rests on a small number of well-known sources: planning from the outcome backwards (Wiggins and McTighe 2005), writing objectives with concrete verbs (Anderson and Krathwohl 2001), limiting how much is new at once (Sweller 1988), combining words with pictures (Mayer 2009), and using questions to help learners remember (Roediger and Karpicke 2006). The accessibility habits follow the Web Content Accessibility Guidelines (World Wide Web Consortium 2023).\n\n\nAnderson, Lorin W., and David R. Krathwohl, eds. 2001. A Taxonomy for Learning, Teaching, and Assessing: A Revision of Bloom’s Taxonomy of Educational Objectives. New York: Longman.\n\n\nMayer, Richard E. 2009. Multimedia Learning. 2nd ed. Cambridge: Cambridge University Press.\n\n\nRoediger, Henry L., and Jeffrey D. Karpicke. 2006. “Test-Enhanced Learning: Taking Memory Tests Improves Long-Term Retention.” Psychological Science 17 (3): 249–55.\n\n\nSweller, John. 1988. “Cognitive Load During Problem Solving: Effects on Learning.” Cognitive Science 12 (2): 257–85.\n\n\nWiggins, Grant, and Jay McTighe. 2005. Understanding by Design. 2nd ed. Alexandria, VA: ASCD.\n\n\nWorld Wide Web Consortium. 2023. “Web Content Accessibility Guidelines (WCAG) 2.2.” W3C Recommendation. https://www.w3.org/TR/WCAG22/.",
+    "crumbs": [
+      "Course",
+      "Reference",
+      "References and Further Reading"
+    ]
+  },
+  {
+    "objectID": "references.html#documentation-of-the-tools",
+    "href": "references.html#documentation-of-the-tools",
+    "title": "References and Further Reading",
+    "section": "Documentation of the tools",
+    "text": "Documentation of the tools\n\nQuarto, the program that builds the website: quarto.org/docs/guide. The section on Websites and the one on Visual Editor are the most useful.\nGitHub Pages: docs.github.com/pages.\nGitLab Pages: docs.gitlab.com/user/project/pages.",
+    "crumbs": [
+      "Course",
+      "Reference",
+      "References and Further Reading"
+    ]
+  },
+  {
+    "objectID": "references.html#suggested-next-steps",
+    "href": "references.html#suggested-next-steps",
+    "title": "References and Further Reading",
+    "section": "Suggested next steps",
+    "text": "Suggested next steps\n\nRead one of the sources above in full. The book on Understanding by Design changes how many people plan every course afterwards.\nTake one chapter of an existing lecture of yours and turn it into a chapter of a course, using the skeleton in _chapter-skeleton.qmd.\nAsk a colleague to review your first chapter using the checklist in Chapter 7.",
+    "crumbs": [
+      "Course",
+      "Reference",
+      "References and Further Reading"
+    ]
+  }
+]

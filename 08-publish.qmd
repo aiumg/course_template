@@ -1,0 +1,292 @@
+---
+title: "Publish on GitHub or GitLab Pages"
+subtitle: "From the finished folder on your computer to a web address learners can open"
+---
+
+::: {.objectives}
+**In this chapter**
+
+- Explain what publishing means here, and what only has to be done once
+- Prepare the project for publishing
+- Put the course online and update it later
+- Check the published course, and fix what went wrong
+- Know what "public" means before you press the button
+:::
+
+## What publishing means
+
+When you press **Render Website**, RStudio builds the course into a folder called
+`docs`. That folder is a complete website. Publishing means *copying that folder to
+a place on the internet that shows it as a web page*.
+
+GitHub and GitLab are websites where projects are stored online. Both can also show
+the website files they hold to the public: this feature is called **Pages**, and the
+result is an ordinary web address. Your course is a set of files; the platform hands
+them to whoever asks.
+
+Three words you will meet:
+
+- **Repository**: your project folder, stored online together with its history.
+- **Commit**: saving a labelled snapshot of your changes. You give it a short
+  message, such as "Update chapter 3".
+- **Push**: sending your saved snapshots from your computer to the online repository.
+
+::: {.keypoint}
+**Key point**
+
+The routine every time is three steps: **render, commit, push.** The rest of this
+chapter is a one-off setup, and it is fine, even normal, to have someone from your
+team do that part with you.
+:::
+
+## Who does what
+
+| | What | How often | Who |
+|---|---|---|---|
+| **A** | Create the online repository, connect it to your computer, switch on Pages | Once per course | You with help, or your team |
+| **B** | Render, commit, push | Every release | You |
+: The one-off setup and the routine {#tbl-roles}
+
+If your team has already set up the repository and Pages for you, skip to
+[the routine](#the-routine-render-commit-push).
+
+## GitHub or GitLab?
+
+Your institution decides; you do not need to choose. Both do the job.
+
+| | GitHub | GitLab |
+|---|---|---|
+| Address of the course | `https://<account>.github.io/<repository>/` | Depends on the installation, for example `https://<group>.pages.<institution>/<project>/` |
+| Who can read it | Anyone, on the free plan | Anyone, or only members of the project, if the installation allows |
+| Setup | A settings page, no extra files | Needs a small automation file; see below |
+: GitHub and GitLab Pages compared {#tbl-platforms}
+
+If your course must not be public (for example, only for enrolled students), do not
+use a free public GitHub repository. Ask your team about the options on your
+institution's GitLab, or about linking the course from the learning platform behind
+a login.
+
+## Before you publish
+
+1. Finish Chapter 7: the checklist.
+2. In `_quarto.yml`, set `site-url` to the address the course will have (from the
+   table above). If you do not know it yet, publish once, read the address off the
+   Pages settings, and then correct it.
+3. Click **Render Website** one last time.
+
+The project contains an empty file named `.nojekyll`. Leave it alone; it tells
+GitHub to serve your files exactly as they are. It starts with a dot, so your
+computer may hide it. That is fine.
+
+## One-off setup
+
+### Step A1: an online repository
+
+::: {.panel-tabset}
+
+## GitHub
+
+The simplest route for a beginner is the free program **GitHub Desktop**.
+
+1. Create an account at github.com if you do not have one. Install GitHub Desktop
+   from [desktop.github.com](https://desktop.github.com) and sign in.
+2. In GitHub Desktop, choose *File → Add local repository…* and pick your project
+   folder. If it says that the folder is not a repository yet, click the link
+   offering to create one.
+3. Click **Publish repository**. Give it a name in lowercase with hyphens. For free
+   Pages the repository has to be public, so **untick "Keep this code private"**.
+   Click *Publish*.
+
+## GitLab
+
+GitLab installations differ (most institutions log in with the university account),
+and there is no official desktop program. Ask your team to create the project and to
+connect it to RStudio with you. Once that is done, RStudio's **Git** tab (in the
+upper-right panel) does everything in the routine below.
+
+:::
+
+### Step A2: switch on Pages
+
+::: {.panel-tabset}
+
+## GitHub
+
+1. Open the repository on github.com and click **Settings**.
+2. In the left menu, click **Pages**.
+3. Under *Build and deployment*, set **Source** to *Deploy from a branch*.
+4. Under *Branch*, choose **main** and, in the folder drop-down next to it,
+   **/docs**. Click **Save**.
+5. Wait a minute or two and reload the page. The address of your course appears at
+   the top.
+
+## GitLab
+
+GitLab shows Pages through a small automation file in the project, called
+`.gitlab-ci.yml`. It differs between installations, so the template does not
+include one. Ask whoever administers your GitLab; they will know the standard one
+for your institution and can add it in a few minutes. Afterwards you never touch it.
+
+::: {.callout-note collapse="true"}
+## For the person who sets it up
+
+A minimal file that publishes the already-built `docs` folder, as a starting
+point; adapt it to your installation's runners and rules:
+
+```yaml
+pages:
+  stage: deploy
+  script:
+    - mkdir -p public
+    - cp -r docs/. public/
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+```
+
+It does not build the course. The author builds it in RStudio and commits the
+`docs` folder.
+:::
+
+:::
+
+## The routine: render, commit, push
+
+Every time you want to release a new version:
+
+1. **Render.** In RStudio, click **Render Website** and wait for it to finish
+   without errors.
+2. **Commit and push.** Save a snapshot and send it online. Steps below.
+3. **Wait, then look.** It takes from a few seconds to a few minutes for the
+   change to appear. Then open your course address and press *Ctrl+F5* so the
+   browser fetches the newest version.
+
+Committing and pushing, in detail:
+
+::: {.panel-tabset}
+
+## GitHub Desktop
+
+Open GitHub Desktop. The left panel lists the changed files. There are usually
+many, because the whole website is rebuilt; that is normal. In the box at the
+bottom left, type a short summary such as *Update chapter 3*, and click **Commit to
+main**. Then click **Push origin** at the top.
+
+## RStudio Git tab
+
+Open the **Git** tab. Click one file, press *Ctrl+A* to select all, and click
+**Stage**. Click **Commit**, type a message, and click **Commit** again. Then click
+the green **Push** arrow.
+
+:::
+
+## Check the published course
+
+Open the live address and try it like a learner would:
+
+- The navigation, sidebar and logo appear, and the colours are right.
+- Pictures load, and a diagram is drawn.
+- A quiz question works when you click **Check answer**.
+- Search finds a word from a chapter.
+- The *Slides* link in the top menu opens the slides.
+- It looks right on your phone.
+
+## When something goes wrong
+
+| What you see | Likely cause | What to do |
+|---|---|---|
+| "404" or "Site not found" on the address | Pages is not switched on yet, or points at the wrong folder | Check Settings → Pages: branch *main*, folder */docs*. Wait a few minutes after saving |
+| The page shows but with no styling, or pictures are missing | Only some files were pushed, or `.nojekyll` is missing | In GitHub Desktop check that no files are left uncommitted; check that `docs/.nojekyll` exists and re-render |
+| An old version is displayed | The browser cached it, or the push did not happen | Press *Ctrl+F5*; check that GitHub Desktop says nothing is waiting to push |
+| Your change is not there at all | You edited but did not render, or rendered but did not commit | Repeat render, commit, push, in that order |
+| A chapter you removed still shows up | It was not cleared from `docs` | Use **Render Website** (the whole site), then commit and push again |
+| A page works on the site but not in a link from your platform | The link uses the wrong address | Use the address shown in Pages settings, with `https://` |
+: Publishing problems and their usual fixes {#tbl-publishing-problems}
+
+## Fixing mistakes
+
+Publishing is not a one-way street. If you find an error, fix the text file, render,
+commit and push again; the corrected version replaces the old one. The repository
+keeps every earlier version too, so a change can be rolled back with help from
+someone technical.
+
+To take the course offline, ask your team. On GitHub, making the repository private
+or deleting it removes the site, and on GitLab the administrator can switch Pages
+off.
+
+## Public means public
+
+::: {.callout-warning}
+## Read this before the first push
+
+- **Everyone can read it.** A public course is visible to the whole internet,
+  including search engines.
+- **Not just the finished pages: the source too.** The repository contains your
+  chapter files, drafts and images, and their whole history.
+- **Deleting is not enough.** If something confidential or personal is committed
+  and you delete it a day later, it is still in the history. If this happens, tell
+  your team at once and do not try to hide it yourself.
+- **Quiz answers are readable** by anyone who looks at the page source.
+  Never put an exam behind these quizzes.
+- **Never commit** patient data, passwords, access tokens or unpublished results.
+:::
+
+## Your course is live
+
+That is the whole workflow: plan on paper, write in text files, render, check,
+commit, push. The first course takes the longest. The second takes a fraction of
+the time, because you now know where everything is. Copy this project again for
+your next one.
+
+## Check your understanding
+
+::: {.quiz-score}
+:::
+
+::: {.question}
+Which folder contains the finished website that gets published?
+
+- [ ] `images`
+- [ ] `assets`
+- [x] `docs`
+- [ ] `slides`
+
+::: {.feedback}
+Render Website writes the finished course into `docs`. That folder is what
+GitHub Pages serves. You never edit it by hand.
+:::
+:::
+
+::: {.question}
+You have corrected a typo in a chapter, but the live site still shows the old text an hour later. What is the most likely reason?
+
+- [ ] GitHub is slow today
+- [x] You edited the file but did not render, commit and push
+- [ ] The typo is cached in the file `.nojekyll`
+- [ ] The chapter is too long
+
+::: {.feedback}
+A change only reaches the live site after all three steps. The most common cause
+of "nothing happened" is one that was skipped. After a push, a few minutes' wait
+and *Ctrl+F5* cover the rest.
+:::
+:::
+
+::: {.question}
+You accidentally committed a spreadsheet with patient names, then deleted it in the next commit. What should you do?
+
+- [ ] Nothing; it is deleted now
+- [ ] Delete the repository's Pages setting
+- [x] Tell your team and your data-protection contact straight away
+- [ ] Rename the spreadsheet
+
+::: {.feedback}
+The file is still in the repository's history, and if the repository is public it
+may already have been seen or copied. It needs to be dealt with by people who can
+remove it properly, and quickly.
+:::
+:::
+
+The three steps of the routine are render, commit, and [?]{.fitb answer="push"}.

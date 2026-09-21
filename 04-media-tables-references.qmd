@@ -1,0 +1,247 @@
+---
+title: "Images, Tables, Diagrams and References"
+subtitle: "Everything on the page that is not running text"
+---
+
+::: {.objectives}
+**In this chapter**
+
+- Add an image with a caption and a text alternative, and refer to it in the text
+- Build a table and keep it readable
+- Draw a simple diagram without a drawing program
+- Embed a video responsibly
+- Cite a source and get the reference list for free
+:::
+
+## Images
+
+Put every image file in the `images/` folder. Then insert it in one of two ways.
+
+- **Visual mode**: *Insert → Figure / Image…*, pick the file, type a caption and
+  the *Alt text*, and confirm.
+- **Source mode**:
+
+```markdown
+![A short caption under the picture](images/placeholder.svg){#fig-demo fig-alt="A dark blue placeholder picture with the words: Your picture goes here."}
+```
+
+Here is the result. Click the picture: it opens enlarged, which helps with
+screenshots and detailed diagrams.
+
+![A short caption under the picture](images/placeholder.svg){#fig-demo fig-alt="A dark blue placeholder picture with the words: Your picture goes here."}
+
+### Alt text is not optional
+
+The **alt text** is a description of the picture for people who cannot see it:
+blind and low-vision learners using a screen reader, and anyone whose image has
+not loaded. In the EU, accessibility is also a legal requirement for most
+public-sector websites. Write what the picture *shows and why it is there*, in a sentence or
+two: "Screenshot of the Build tab with the Render Website button highlighted",
+not "screenshot" or "image1".
+
+The caption and the alt text do different jobs. The caption is for everybody and
+says what to notice. The alt text stands in for the picture.
+
+### Referring to a picture
+
+Notice the `{#fig-demo}` in the source above. That label lets you point to the
+figure by number from anywhere in the chapter: typing `@fig-demo` produces
+@fig-demo. The number updates itself if you add a figure before it. Labels for
+figures must start with `fig-`, and for tables with `tbl-`.
+
+### Choosing and preparing images
+
+| Situation | Best format |
+|---|---|
+| Screenshot, diagram, chart | PNG, or SVG for drawings |
+| Photograph | JPG |
+| Logo or line drawing you can scale | SVG |
+: Which file type to use {#tbl-formats}
+
+- **Keep files small.** A photo straight from a phone can be many megabytes and
+  makes the course slow to load. Scale it down (a width of about 1600 pixels is
+  plenty) before adding it.
+- **Do not put text in images.** It cannot be searched, resized or read aloud.
+  Put the text in the page and use the image for what only an image can show.
+- **Use only images you have the right to use.** Pictures found online are
+  usually copyrighted. Use your own, the university's, or material with a clear
+  licence, and credit the source in the caption.
+- **Never publish anything that identifies a patient** unless you hold explicit
+  consent and your institution has approved it. Remember that the finished
+  course will be public (Chapter 8).
+
+## Tables
+
+A table shows a comparison, or a list of items each with the same properties. In
+Visual mode use **Insert → Table** and type into the cells. In Source mode a table
+is drawn with vertical bars:
+
+```markdown
+| Tool | Used for | Cost |
+|---|---|---|
+| RStudio | Writing and building the course | Free |
+| GitHub | Publishing the course | Free for public courses |
+: The tools in this course {#tbl-tools}
+```
+
+The line starting with a colon is the caption, and the label works like a figure's
+label: `@tbl-tools` gives @tbl-tools.
+
+| Tool | Used for | Cost |
+|---|---|---|
+| RStudio | Writing and building the course | Free |
+| GitHub | Publishing the course | Free for public courses |
+: The tools in this course {#tbl-tools}
+
+Keep tables **small** (rarely more than five columns) and never use a table just
+to arrange things on the page. If a table gets wide, it usually wants to be two
+tables, or a list.
+
+## Diagrams without a drawing program
+
+For processes and relationships, you can *describe* the diagram in text and let
+the website draw it. This is called **Mermaid**. It is ideal for flow charts,
+and diagrams stay editable: to change a box, change a word.
+
+Type a block like this:
+
+````markdown
+```{mermaid}
+%%| label: fig-flow
+%%| fig-cap: "The working rhythm"
+%%| fig-alt: "Three boxes in a row: Edit, Render, Check. An arrow leads from each to the next, and from Check back to Edit."
+flowchart LR
+    A["Edit"] --> B["Render"]
+    B --> C["Check"]
+    C --> A
+```
+````
+
+Each box is `letter["Label"]`, and `-->` draws an arrow between two of them. The
+result:
+
+```{mermaid}
+%%| label: fig-flow
+%%| fig-cap: "The working rhythm"
+%%| fig-alt: "Three boxes in a row: Edit, Render, Check. An arrow leads from each to the next, and from Check back to Edit."
+flowchart LR
+    A["Edit"] --> B["Render"]
+    B --> C["Check"]
+    C --> A
+```
+
+To colour boxes in the university's palette, add these lines at the end of the
+diagram and list the boxes that should get each style:
+
+```markdown
+    classDef dark fill:#203151,stroke:#203151,color:#ffffff
+    classDef gold fill:#f1a400,stroke:#f1a400,color:#000000
+    class A,B dark
+    class C gold
+```
+
+The first two lines define a style (dark blue with white text; yellow with black
+text, as the corporate design allows), the last two apply them. The landing page
+of this course uses exactly this.
+
+::: {.callout-note appearance="simple"}
+## When not to use a diagram
+
+If you find yourself fighting the tool to get a complicated picture, draw it in
+any program you like, export it as PNG or SVG, and use it as an ordinary image.
+Do not spend an afternoon on a diagram.
+:::
+
+## Video
+
+A short video can explain a movement or a screen recording better than a page of
+text. Use the video shortcode with a web address or a local file:
+
+```markdown
+{{{< video media/hand-disinfection.mp4 >}}}
+```
+
+Two things to consider before you add one:
+
+- **Where it is hosted matters.** Embedding a video from a public platform makes
+  the learner's browser contact that company, which raises data-protection
+  questions for a public university. Prefer a video hosted by the university or
+  your own project, and ask your data-protection officer what is approved.
+- **Provide a transcript or captions.** Learners who cannot hear, and learners
+  in a quiet library, need them.
+
+## Citing sources
+
+If you refer to research or guidelines, cite them properly. The template builds
+the reference list automatically.
+
+1. **Keep your sources in one file**, `references.bib`. Each source has a short
+   *key* of your choosing, for example `roediger2006test`.
+2. **Cite in the text** by typing `@` and the key: `[@roediger2006test]` gives
+   [@roediger2006test]. To cite two, separate with a semicolon:
+   `[@sweller1988cognitive; @mayer2009multimedia]`.
+3. **The list appears** wherever the page `references.qmd` says so. You do not
+   type it.
+
+You almost never have to write `references.bib` by hand. If you use the
+reference manager **Zotero**, export your collection as *BibTeX* and save it over
+`references.bib`. In RStudio's Visual mode, **Insert → Citation…** can also look a
+source up by its DOI and add it for you.
+
+::: {.callout-tip appearance="simple"}
+## Cite for the learner, not for show
+
+A good course cites where a claim needs support or where a learner might want to
+read further. It does not need a citation after every sentence. Two or three
+well-chosen sources per chapter are plenty.
+:::
+
+## Check your understanding
+
+::: {.quiz-score}
+:::
+
+::: {.question}
+Where should the image files for the course be stored?
+
+- [ ] Anywhere; the website finds them
+- [x] In the `images/` folder of the project
+- [ ] In the `docs/` folder
+- [ ] Pasted into a Word document next to the chapter
+
+::: {.feedback}
+Keep all pictures in `images/`, so they are in one place and the links in your
+chapters stay short and consistent. Never place anything in `docs/`; it is
+overwritten at every render.
+:::
+:::
+
+::: {.question}
+Which is the best alt text for a screenshot of the Build tab?
+
+- [ ] Screenshot
+- [ ] image1.png
+- [x] The Build tab in RStudio, with the Render Website button highlighted
+- [ ] Look at the picture above
+
+::: {.feedback}
+Alt text should say what the picture shows and why it is there, so that someone
+who cannot see it gets the same information.
+:::
+:::
+
+::: {.question}
+You have a 6 MB photograph from a phone camera. What should you do before using it?
+
+- [ ] Nothing; the website compresses it automatically
+- [x] Scale it down to about 1600 pixels wide and save it as a JPG
+- [ ] Convert it to a table
+- [ ] Type the caption into the picture
+
+::: {.feedback}
+The website serves the file exactly as it is, so a huge image slows every
+learner's page down. Scale it before you add it.
+:::
+:::
+
+In the text, a citation is written by typing the sign [?]{.fitb answer="@"} followed by the key.

@@ -1,0 +1,33 @@
+---
+title: "References and Further Reading"
+number-sections: false
+---
+
+## Cited in this course
+
+The learning-design advice in this course rests on a small number of well-known
+sources: planning from the outcome backwards [@wiggins2005understanding],
+writing objectives with concrete verbs [@anderson2001taxonomy], limiting how much
+is new at once [@sweller1988cognitive], combining words with pictures
+[@mayer2009multimedia], and using questions to help learners remember
+[@roediger2006test]. The accessibility habits follow the Web Content
+Accessibility Guidelines [@w3c2023wcag22].
+
+::: {#refs}
+:::
+
+## Documentation of the tools
+
+- **Quarto**, the program that builds the website: [quarto.org/docs/guide](https://quarto.org/docs/guide/).
+  The section on *Websites* and the one on *Visual Editor* are the most useful.
+- **GitHub Pages**: [docs.github.com/pages](https://docs.github.com/pages).
+- **GitLab Pages**: [docs.gitlab.com/user/project/pages](https://docs.gitlab.com/user/project/pages/).
+
+## Suggested next steps
+
+- Read one of the sources above in full. The book on *Understanding by Design*
+  changes how many people plan every course afterwards.
+- Take one chapter of an existing lecture of yours and turn it into a chapter of
+  a course, using the skeleton in `_chapter-skeleton.qmd`.
+- Ask a colleague to review your first chapter using the checklist in
+  Chapter 7.

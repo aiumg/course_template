@@ -1,0 +1,141 @@
+/* Self-assessment components.
+
+   All colours come from the CSS variables that theme.scss defines, so this
+   file follows the corporate palette and dark mode automatically.
+
+   Correct = blue, incorrect = yellow. The UMG palette has no green or red,
+   and blue/yellow is also the pairing that stays distinguishable for
+   colour-blind readers. Every state additionally carries a ✓ / ✗ mark and
+   words, so colour is never the only signal. */
+
+div.question {
+  background: var(--c-card);
+  border: 1px solid var(--c-line);
+  border-left: 5px solid var(--c-heading);
+  border-radius: 3px;
+  padding: 1.15rem 1.35rem 1rem;
+  margin: 1.75rem 0;
+}
+
+div.question > p:first-child {
+  font-weight: 600;
+  margin-bottom: 0.9rem;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 0.9rem;
+}
+
+.quiz-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--c-line);
+  border-radius: 3px;
+  cursor: pointer;
+  background: var(--c-bg);
+}
+
+.quiz-option:hover { border-color: var(--c-accent); }
+
+.quiz-option input { margin-top: 0.28rem; flex: 0 0 auto; }
+.quiz-option-text { flex: 1 1 auto; }
+.quiz-mark { flex: 0 0 auto; font-weight: 700; }
+
+.quiz-option.is-correct {
+  background: var(--c-accent-soft);
+  border-color: var(--c-accent);
+  border-width: 2px;
+}
+.quiz-option.is-correct .quiz-mark::after {
+  content: "✓";
+  color: var(--c-accent);
+}
+
+.quiz-option.is-wrong {
+  background: var(--c-highlight-soft);
+  border-color: var(--c-highlight);
+  border-width: 2px;
+}
+.quiz-option.is-wrong .quiz-mark::after {
+  content: "✗";
+  color: var(--c-text);
+}
+
+.quiz-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+button.quiz-check {
+  background: var(--c-accent);
+  color: var(--c-on-accent);
+  border: none;
+  border-radius: 3px;
+  padding: 0.42rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+button.quiz-check:hover:not(:disabled) { background: var(--c-accent-hover); color: var(--c-on-accent); }
+button.quiz-check:disabled { background: var(--c-line); color: var(--c-muted); cursor: default; }
+button.quiz-check:focus-visible,
+.quiz-option input:focus-visible,
+.quiz-fitb input:focus-visible {
+  outline: 3px solid var(--c-highlight);
+  outline-offset: 2px;
+}
+
+.quiz-verdict { font-size: 0.9rem; font-weight: 600; }
+.quiz-right   { color: var(--c-accent); }
+.quiz-wrong   { color: var(--c-text); }
+.quiz-neutral { color: var(--c-muted); font-weight: 500; }
+
+div.feedback {
+  margin-top: 0.95rem;
+  padding: 0.75rem 1rem;
+  background: var(--c-surface);
+  border-left: 4px solid var(--c-rule);
+  border-radius: 0 3px 3px 0;
+  font-size: 0.95rem;
+}
+div.feedback.feedback-hidden { display: none; }
+
+/* Inline fill-in answers */
+.quiz-fitb { display: inline-flex; align-items: center; gap: 0.3rem; }
+.quiz-fitb input {
+  border: 1px solid var(--c-muted);
+  border-radius: 3px;
+  padding: 0.12rem 0.4rem;
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+.quiz-fitb.is-correct input { border: 2px solid var(--c-accent); background: var(--c-accent-soft); }
+.quiz-fitb.is-wrong   input { border: 2px solid var(--c-highlight); background: var(--c-highlight-soft); }
+.quiz-fitb-mark { font-weight: 700; }
+.quiz-fitb.is-correct .quiz-fitb-mark { color: var(--c-accent); }
+.quiz-fitb.is-wrong   .quiz-fitb-mark { color: var(--c-text); }
+
+/* Running score */
+.quiz-score {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  background: var(--c-heading);
+  color: var(--c-bg);
+  padding: 0.9rem 1.25rem;
+  border-radius: 3px;
+  margin: 1.5rem 0;
+  border-bottom: 4px solid var(--c-highlight);
+}
+.score-count { font-size: 1.6rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.score-label { font-size: 0.92rem; }

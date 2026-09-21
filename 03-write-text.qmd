@@ -1,0 +1,294 @@
+---
+title: "Write Text"
+subtitle: "Headings, emphasis, links, and the boxes that make a page easy to read"
+---
+
+::: {.objectives}
+**In this chapter**
+
+- Write and format text in Visual mode, and read the same text in Source mode
+- Structure a page with headings that work for navigation and screen readers
+- Use callouts, tabs, key-point boxes and footnotes in the right places
+- Link to other chapters and to the glossary
+:::
+
+## Two views of the same file
+
+Every chapter is a text file. RStudio shows it in one of two ways, switched by
+the **Source** and **Visual** buttons at the top-left of the editor.
+
+- **Visual** looks like a word processor. Use the toolbar for bold, lists and
+  links, and the **Insert** menu for pictures, tables, callouts and more.
+- **Source** shows the plain text, with a few symbols marking the formatting.
+  This is called *markdown*.
+
+You can switch at any time without losing anything. If you never want to see
+markdown, you never have to. But it is worth being able to *read* it, because
+this course shows examples in that form, and because a fix in Source view is
+sometimes faster than hunting for the right menu.
+
+## Markdown in one table
+
+The left column is what you type in Source view. The right column is what the
+reader sees.
+
+| You type | The reader sees |
+|---|---|
+| `## A heading` | (a section heading, see below) |
+| `**important**` | **important** |
+| `*emphasis*` | *emphasis* |
+| `` `file.qmd` `` | `file.qmd` |
+| `- item` on a new line | a bullet point |
+| `1. step` on a new line | a numbered step |
+| `[the glossary](glossary.qmd)` | [the glossary](glossary.qmd) |
+| `> quotation` | a quotation block |
+: The handful of markdown symbols you will use daily {#tbl-markdown}
+
+A blank line separates paragraphs. A list needs a blank line before it. That is
+nearly all there is.
+
+## The top of every file
+
+Each chapter starts with a small block between two lines of three dashes:
+
+```markdown
+---
+title: "Write Text"
+subtitle: "Headings, emphasis, links, and the boxes that make a page easy to read"
+---
+```
+
+The `title` becomes the page heading and the entry in the sidebar. The `subtitle`
+is optional and appears underneath. Keep the quotation marks and the dashes.
+
+## Headings
+
+Use headings to divide the chapter into short sections. In Source view they are
+lines starting with `##` (a main section) or `###` (a subsection):
+
+```markdown
+## Main section
+
+### A subsection inside it
+```
+
+In Visual mode, use the paragraph-style drop-down in the toolbar and choose
+*Heading 2* or *Heading 3*.
+
+Three rules, because headings do more work than they appear to:
+
+1. **Do not use `#` (a single hash) inside a chapter.** The page title already
+   uses that level. Start with `##`.
+2. **Never skip a level.** A `###` belongs under a `##`.
+3. **Never fake a heading with bold text.** Real headings feed the "On this page"
+   list on the right, the automatic numbering, and search. They are also how
+   people using a screen reader jump around the page. Bold text does none of
+   that.
+
+::: {.keypoint}
+**Key point**
+
+A learner scans before they read. Make the headings tell the story on their own:
+"How to add a chapter" beats "Chapters".
+:::
+
+## Writing for the screen
+
+Reading on a screen is not reading on paper. A few habits help:
+
+- **Short paragraphs**, three or four sentences.
+- **Say the point first**, then explain.
+- **Link text should make sense alone.** "Read the [glossary](glossary.qmd)" is
+  good; "click [here](glossary.qmd)" is not, because screen-reader users often
+  hear a list of links with no surrounding text.
+- **Use lists** when items are parallel, and **numbered lists** only when order
+  matters.
+- Write in the second person ("you will") and keep sentences plain.
+
+## Linking
+
+To link to another chapter, use its file name, not a web address:
+
+```markdown
+See [Chapter 2](02-plan-and-structure.qmd) for how to add a chapter.
+```
+
+This keeps working after the course is published, even if the web address
+changes. To link to another website, use the full address starting with
+`https://`. In Visual mode, select the words and press *Ctrl+K* (*Cmd+K* on a
+Mac).
+
+## Boxes that carry meaning
+
+Boxes draw the eye, so each kind should mean one thing, and a page should have
+few of them. This template has two families.
+
+### Callouts
+
+Callouts are built in. There are five kinds; the colour and icon follow the
+university's palette.
+
+::: {.callout-note}
+## Note
+
+Extra information that is useful but not essential.
+:::
+
+::: {.callout-tip}
+## Tip
+
+A shortcut or a piece of good practice.
+:::
+
+::: {.callout-important}
+## Important
+
+Something the reader must not miss.
+:::
+
+::: {.callout-warning}
+## Warning
+
+A step where mistakes are likely or costly.
+:::
+
+::: {.callout-caution}
+## Caution
+
+Something that can cause a problem in specific circumstances.
+:::
+
+In Source view a callout is written like this. The words after `callout-` pick the
+kind, and the `##` line is its title:
+
+```markdown
+::: {.callout-warning}
+## Warning
+
+A step where mistakes are likely or costly.
+:::
+```
+
+In Visual mode, use **Insert → Callout**. Add `collapse="true"` inside the braces
+to make a callout start folded, which is useful for extra detail:
+
+::: {.callout-note collapse="true"}
+## Click to unfold: an optional detail
+
+Folded callouts keep the main path short. Learners who want the detail can open
+it; the rest can skip it.
+:::
+
+### Objectives and key point
+
+Two boxes are specific to this template. Both are made the same way, with a
+`::: {.name}` line, their content, and a closing `:::`. In Visual mode use
+**Insert → Div…** and type the class name (`objectives` or `keypoint`) into the
+attributes field.
+
+::: {.panel-tabset}
+
+## Objectives
+
+Once, at the top of a chapter, in blue.
+
+```markdown
+::: {.objectives}
+**In this chapter**
+
+- Write objectives that can be checked
+- Cut a topic into chapters
+:::
+```
+
+## Key point
+
+Once per section at most, in yellow. The one thing to remember.
+
+```markdown
+::: {.keypoint}
+**Key point**
+
+You edit the text files, never the finished website.
+:::
+```
+
+:::
+
+Tabs, as you just used, are also useful for alternatives such as "Windows" and
+"Mac". Each `##` heading inside a `::: {.panel-tabset}` block becomes a tab.
+
+## Footnotes
+
+A footnote gives a side remark without breaking the flow.[^first] Type `^[your
+note here]` right where the note belongs, or use **Insert → Footnote** in Visual
+mode. On a computer, hovering over the number shows the note.
+
+[^first]: Like this one. It appears at the bottom of the page, and pops up when
+you hover over the number.
+
+## Explaining terms
+
+Every field has words that learners do not know yet. Put them in the glossary
+page (`glossary.qmd`), and mark the first use in the text so that hovering shows
+the meaning. For example, the word [render]{.gloss title="Build the website from the text files"}
+below has a dotted underline: on a computer, hover to see the explanation.
+
+```markdown
+Click [render]{.gloss title="Build the website from the text files"} again.
+```
+
+Hover text does not appear on touch screens, so the glossary page is the primary
+place for definitions. The hover is a convenience.
+
+## Check your understanding
+
+::: {.quiz-score}
+:::
+
+::: {.question}
+You want to start a new section in the middle of a chapter. What do you type?
+
+- [ ] `# New section`
+- [x] `## New section`
+- [ ] `**New section**`
+- [ ] `NEW SECTION`
+
+::: {.feedback}
+`##` makes a real heading, one level below the page title. A single `#` is
+reserved for the title, and bold text is not a heading at all, so it would not
+appear in the "On this page" list.
+:::
+:::
+
+::: {.question}
+Which link text is best?
+
+- [ ] Click [here](glossary.qmd) for the glossary
+- [ ] [https://…/glossary.html](glossary.qmd)
+- [x] Look up the term in the [glossary](glossary.qmd)
+- [ ] [Link](glossary.qmd)
+
+::: {.feedback}
+Good link text describes the destination and makes sense when read on its own,
+which is how screen-reader users often meet links.
+:::
+:::
+
+::: {.question}
+For a warning that only some readers need to see, in full detail, you should use:
+
+- [ ] A key-point box
+- [x] A callout with `collapse="true"`
+- [ ] A heading
+- [ ] Red text
+
+::: {.feedback}
+A folded callout keeps the main text short and leaves the detail to whoever wants
+it. Red text is not part of the template's palette, and colour alone should never
+carry the meaning anyway.
+:::
+:::
+
+The symbol pair you type around a word to make it bold is two [?]{.fitb answer="asterisks|stars|**"}.
+(Type the word, or the symbol.)

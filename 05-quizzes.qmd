@@ -1,0 +1,211 @@
+---
+title: "Quizzes"
+subtitle: "Questions that give learners instant feedback, written as plain text"
+---
+
+::: {.objectives}
+**In this chapter**
+
+- Write a multiple-choice question with feedback
+- Write a fill-in-the-blank question for a word or a number
+- Add a running score to a page
+- Write questions that teach, not just test
+- State what these quizzes can and cannot do
+:::
+
+## Why quizzes belong in every chapter
+
+Answering a question about something you have just read is one of the most
+reliable ways to remember it. In the classic experiments, learners who were
+tested on a passage remembered more a week later than learners who simply read it
+again [@roediger2006test]. So the questions at the end of a chapter are not an
+extra: they are part of the teaching.
+
+The template has a small quiz tool built in. You write questions as plain text,
+and the website turns them into clickable questions. Nothing needs installing,
+and nothing is sent anywhere.
+
+## Multiple choice
+
+A question is a block that starts with `::: {.question}` and ends with `:::`.
+Inside: the question, a list of options, and (optionally) an explanation. Mark the
+**correct** option with an `x` between the brackets.
+
+````markdown
+::: {.question}
+Which file holds the chapter order?
+
+- [ ] index.qmd
+- [x] _quarto.yml
+- [ ] references.bib
+
+::: {.feedback}
+The list under `sidebar:` in `_quarto.yml` decides the order.
+:::
+:::
+````
+
+Here is the result. Try it, and try getting it wrong to see what happens.
+
+::: {.question}
+Which file holds the chapter order?
+
+- [ ] index.qmd
+- [x] _quarto.yml
+- [ ] references.bib
+
+::: {.feedback}
+The list under `sidebar:` in `_quarto.yml` decides the order.
+:::
+:::
+
+The learner picks an option and presses **Check answer**. The right option turns
+blue with a tick; a wrong choice turns yellow with a cross; and the explanation
+appears either way. Options are locked afterwards, so the learner cannot simply
+click through them all.
+
+Exactly one option must be marked correct. Everything between the options and the
+`::: {.feedback}` block is optional, but the feedback is where the teaching
+happens, so please always write it.
+
+In Visual mode, the easiest way is to write the question as an ordinary
+paragraph, type the options as a task list (*Insert → Task List* or a bullet
+list with checkboxes), and wrap the whole thing with **Insert → Div…**, class
+`question`. Many authors find it quicker to copy a finished question in Source
+view and change the words.
+
+## Fill in the blank
+
+For a word, name or number that the learner should recall, put a marker right in
+the sentence:
+
+```markdown
+The tool that builds the website is called [?]{.fitb answer="Quarto"}.
+```
+
+The tool that builds the website is called [?]{.fitb answer="Quarto"}. Try typing
+it, then click elsewhere.
+
+The `[?]` becomes a small input box. Some details:
+
+- **Case and spaces do not matter**: "quarto" is accepted.
+- **Several accepted answers**: separate them with a vertical bar, for example
+  `answer="qmd|.qmd"`.
+- **Numbers** are graded as numbers. Add a tolerance with `tol`:
+  `[?]{.fitb answer="20" tol="10"}` accepts anything from 10 to 30. Without
+  `tol`, the number must match to within 0.01. A decimal comma is accepted as
+  well as a decimal point.
+
+::: {.callout-warning appearance="simple"}
+## Do not wrap a fill-in in a question block
+
+A fill-in is a sentence with a blank. Put it straight into the running text, as
+above. The `::: {.question}` block is only for multiple choice.
+:::
+
+## A running score
+
+To show a scoreboard that counts correct answers on the page, place an empty
+block above your questions:
+
+```markdown
+::: {.quiz-score}
+:::
+```
+
+It shows "0 / 3" and updates as the learner answers. It counts the multiple-choice
+questions on that page. Every chapter in this course has one.
+
+## Writing questions that teach
+
+A question is only as good as its wrong answers and its feedback.
+
+1. **Test the objective, not trivia.** Look at the objective for the chapter and
+   write a question that checks exactly that.
+2. **Make the wrong options plausible.** Each should be something a learner who
+   has misunderstood would actually choose. Silly options teach nothing.
+3. **Avoid "all of the above" and "none of the above".** They reward guessing
+   strategy rather than knowledge.
+4. **Keep options similar in length** and put the correct one in a varying
+   position. The template does not shuffle the options, so vary them yourself.
+5. **Explain in the feedback.** Say *why* the right answer is right and, briefly,
+   why the tempting wrong one is not. Feedback on a wrong answer is where most
+   of the learning occurs.
+6. **Two to four questions per chapter** is usually enough.
+
+::: {.keypoint}
+**Key point**
+
+Write the feedback first. If you cannot explain why an answer is right in two
+sentences, the question is not ready.
+:::
+
+## What these quizzes are, and are not
+
+::: {.callout-important}
+## Self-check, not an examination
+
+The answers are checked inside the learner's own browser. **Nothing is recorded,
+no score is sent to you, and there is no login.** A learner who looks at the page
+source can read the right answers.
+
+That makes these quizzes ideal for practice and immediate feedback, and unsuitable
+for anything that counts towards a grade, a certificate or a licence. For those,
+use the test tools of your learning platform, and link to your course from
+there.
+:::
+
+If you need to know how learners are doing, the honest options are a short
+survey at the end, or a linked exercise in your learning platform.
+
+## Check your understanding
+
+::: {.quiz-score}
+:::
+
+::: {.question}
+How do you mark the correct option in a multiple-choice question?
+
+- [ ] Write the word "correct" after it
+- [x] Put an `x` in its brackets: `- [x] option`
+- [ ] Make it bold
+- [ ] Put it first in the list
+
+::: {.feedback}
+The `x` in the brackets marks the correct option. Position and formatting make no
+difference, so put the right answer wherever suits the question.
+:::
+:::
+
+::: {.question}
+A colleague wants to use these quizzes for the final exam of a course, with
+results sent to the teacher. What is your advice?
+
+- [ ] Go ahead; the score is saved automatically
+- [ ] Add a name field to every question
+- [x] Use the platform's test tool instead; these quizzes record nothing and the answers can be read in the page source
+- [ ] Hide the answers in white text
+
+::: {.feedback}
+The quizzes run entirely in the reader's browser, by design. They are excellent
+for practice and useless for assessment. Hiding the answers in white text would
+not hide them from anyone who knows to look, and it would break accessibility.
+:::
+:::
+
+::: {.question}
+What is the most useful part of a question for learning?
+
+- [ ] The number of options
+- [ ] The score counter
+- [x] The feedback that explains why an answer is right or wrong
+- [ ] The colour of the correct option
+
+::: {.feedback}
+The moment after a learner answers is the moment they most want to know why. Use
+it.
+:::
+:::
+
+In a multiple-choice question, the correct option is the one with the letter
+[?]{.fitb answer="x"} between its brackets.
